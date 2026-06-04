@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="100%" stop-color="#0F1625"/>
+    </linearGradient>
+    <!-- Cyan glow for accent elements -->
+    <radialGradient id="glow1" cx="20%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#2B7FFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#2B7FFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#1F2937" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1F2937" stroke-width="1" opacity="0.3"/>
+
+  <!-- Decorative H-tree shape (right side) -->
+  <g opacity="0.1" stroke="#00D4AA" stroke-width="2" fill="none">
+    <!-- L0 trunk -->
+    <line x1="780" y1="315" x2="1100" y2="315"/>
+    <!-- L1 verticals -->
+    <line x1="780" y1="225" x2="780" y2="405"/>
+    <line x1="1100" y1="225" x2="1100" y2="405"/>
+    <!-- L2 horizontals -->
+    <line x1="700" y1="225" x2="860" y2="225"/>
+    <line x1="700" y1="405" x2="860" y2="405"/>
+    <line x1="1020" y1="225" x2="1180" y2="225"/>
+    <line x1="1020" y1="405" x2="1180" y2="405"/>
+    <!-- Ports -->
+    <circle cx="700" cy="180" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="700" cy="270" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="860" cy="180" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="860" cy="270" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="700" cy="360" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="700" cy="450" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="860" cy="360" r="8" fill="#00D4AA" opacity="0.5"/>
+    <circle cx="860" cy="450" r="8" fill="#00D4AA" opacity="0.5"/>
+    <!-- Central reservoir -->
+    <circle cx="940" cy="315" r="18" fill="#00D4AA" opacity="0.3"/>
+  </g>
+
+  <!-- Left border accent line -->
+  <rect x="0" y="0" width="4" height="630" fill="#00D4AA" opacity="0.8"/>
+
+  <!-- Logo mark -->
+  <circle cx="80" cy="80" r="22" stroke="#00D4AA" stroke-width="2" fill="none"/>
+  <path d="M65 73 Q80 66 95 73 Q80 80 65 73Z" fill="#00D4AA" opacity="0.9"/>
+  <path d="M65 80 Q80 73 95 80 Q80 87 65 80Z" fill="#00D4AA" opacity="0.6"/>
+  <path d="M65 87 Q80 80 95 87 Q80 94 65 87Z" fill="#00D4AA" opacity="0.35"/>
+
+  <!-- Wordmark -->
+  <text x="115" y="88" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#F8F9FA">SIVORO MICROFLUIDICS</text>
+
+  <!-- Main headline -->
+  <text x="80" y="240" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="72" font-weight="700" fill="#F8F9FA" letter-spacing="-1">Living channels.</text>
+  <text x="80" y="330" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="72" font-weight="700" fill="#00D4AA" letter-spacing="-1">Programmable flow.</text>
+
+  <!-- Subheadline -->
+  <text x="80" y="400" font-family="'Inter', sans-serif" font-size="24" fill="#8B95A5" letter-spacing="0">The first self-assembling, optogenetically controlled</text>
+  <text x="80" y="432" font-family="'Inter', sans-serif" font-size="24" fill="#8B95A5">microfluidic platform. No cleanroom required.</text>
+
+  <!-- Stat badges -->
+  <rect x="80" y="490" width="190" height="38" rx="6" fill="rgba(0,212,170,0.1)" stroke="#00D4AA" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="175" y="514" font-family="'Inter', sans-serif" font-size="13" fill="#00D4AA" text-anchor="middle" font-weight="500">9,976 KO pairs screened</text>
+
+  <rect x="286" y="490" width="170" height="38" rx="6" fill="rgba(0,212,170,0.1)" stroke="#00D4AA" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="371" y="514" font-family="'Inter', sans-serif" font-size="13" fill="#00D4AA" text-anchor="middle" font-weight="500">100× dynamic range</text>
+
+  <rect x="472" y="490" width="150" height="38" rx="6" fill="rgba(0,212,170,0.1)" stroke="#00D4AA" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="547" y="514" font-family="'Inter', sans-serif" font-size="13" fill="#00D4AA" text-anchor="middle" font-weight="500">&lt;$1 per device</text>
+
+  <!-- Domain -->
+  <text x="1120" y="600" font-family="'Inter', sans-serif" font-size="20" fill="#8B95A5" text-anchor="end" opacity="0.7">sivoro.bio</text>
+
+  <!-- Seed round badge -->
+  <rect x="80" y="572" width="200" height="38" rx="6" fill="rgba(245,166,35,0.12)" stroke="#F5A623" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="180" y="596" font-family="'Inter', sans-serif" font-size="13" fill="#F5A623" text-anchor="middle" font-weight="600">Seed Round · $1.5M · 2026</text>
+</svg>

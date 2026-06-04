@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const openRoles = [
+  {
+    title: 'Fungal Geneticist',
+    type: 'Part-time / Academic Collaboration',
+    icon: '🧬',
+    desc: 'N. crassa transformation expertise for chassis construction. Lead wet-lab strain engineering using electroporation and selection protocols.',
+    requirements: ['N. crassa or filamentous fungus experience', 'Electroporation + selection protocols', 'PCR verification workflows', 'Access to BSL-1 lab space'],
+    color: '#00D4AA',
+  },
+  {
+    title: 'Microfluidics Engineer',
+    type: 'First hire post-seed',
+    icon: '⚗️',
+    desc: 'First full-time hire post-seed. Own the physical chip fabrication pipeline — SU-8, PDMS, and organ-chip integration — and translate computational scaffold designs into working prototypes.',
+    requirements: ['SU-8 / PDMS fabrication', 'Cleanroom experience', 'Organ-chip integration (preferred)', 'Microscopy + fluorescence imaging'],
+    color: '#2B7FFF',
+  },
+  {
+    title: 'Protein Biochemist',
+    type: 'Consultant',
+    icon: '🔬',
+    desc: 'Execute SEC-MALS and BLI/SPR validation of the optogenetic valve components. Protein expression in E. coli and Pichia systems with purification expertise.',
+    requirements: ['SEC-MALS characterization', 'BLI / SPR binding assays', 'E. coli / Pichia expression systems', 'Protein purification (FPLC)'],
+    color: '#F5A623',
+  },
+];
+---
+
+<BaseLayout
+  title="Team | Sivoro Microfluidics"
+  description="Founder Michael McKenna — computational biology, metabolic modeling, microfluidics. 7,600+ lines Python, 9,976 KO pairs screened. Hiring fungal geneticist, microfluidics engineer, protein biochemist."
+  keywords="Michael McKenna founder, computational biology, microfluidics team, synthetic biology jobs, fungal geneticist, microfluidics engineer, protein biochemist, biotech startup Ann Arbor"
+>
+
+<!-- Person structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michael McKenna",
+    "jobTitle": "Founder & CEO",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Sivoro Microfluidics",
+      "url": "https://sivoro.bio"
+    },
+    "knowsAbout": ["Computational Biology", "Metabolic Modeling", "Microfluidics", "Synthetic Biology", "Python"],
+    "description": "Founder of Sivoro Microfluidics. Completed full computational pipeline: 7,600+ lines Python, genome-scale metabolic modeling, 9,976 KO pairs screened, two validated optogenetic constructs, five patent families."
+  }
+</script>
+  <!-- Hero -->
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;">
+        <span class="section-label">Team</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem);">Founder &amp; Key Hires</h1>
+        <p class="subhead">One founder, a complete computational pipeline, and three critical hires needed to take the technology from code to colony.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder spotlight -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start;">
+          <!-- Photo / avatar -->
+          <div style="position:sticky; top:84px;">
+            <div style="aspect-ratio:1; border-radius:16px; background:linear-gradient(135deg, rgba(0,212,170,0.15) 0%, rgba(43,127,255,0.1) 100%); border:1px solid rgba(0,212,170,0.2); display:flex; align-items:center; justify-content:center; overflow:hidden; max-width:320px;">
+              <!-- Placeholder avatar -->
+              <svg viewBox="0 0 200 200" style="width:70%; opacity:0.6;" aria-hidden="true">
+                <circle cx="100" cy="80" r="40" fill="#1F2937"/>
+                <ellipse cx="100" cy="160" rx="55" ry="40" fill="#1F2937"/>
+                <circle cx="100" cy="80" r="36" fill="#374151"/>
+                <circle cx="100" cy="78" r="22" fill="#4B5563"/>
+                <circle cx="93" cy="74" r="6" fill="#00D4AA" opacity="0.6"/>
+                <circle cx="107" cy="74" r="6" fill="#00D4AA" opacity="0.6"/>
+              </svg>
+            </div>
+            <div style="margin-top:1.5rem; max-width:320px;">
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <a href="#" style="display:flex; align-items:center; gap:0.5rem; color:#8B95A5; font-size:0.875rem; text-decoration:none; transition:color 200ms;" onmouseover="this.style.color='#F8F9FA'" onmouseout="this.style.color='#8B95A5'">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
+                <a href="#" style="display:flex; align-items:center; gap:0.5rem; color:#8B95A5; font-size:0.875rem; text-decoration:none; transition:color 200ms;" onmouseover="this.style.color='#F8F9FA'" onmouseout="this.style.color='#8B95A5'">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="mailto:michael@sivoro.bio" style="display:flex; align-items:center; gap:0.5rem; color:#00D4AA; font-size:0.875rem; text-decoration:none;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  michael@sivoro.bio
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div>
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00D4AA; margin:0 0 0.5rem;">Founder</p>
+            <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#F8F9FA; margin:0 0 0.25rem; font-family:var(--font-display);">Michael McKenna</h2>
+            <p style="color:#8B95A5; font-size:1rem; margin:0 0 2rem;">Computational biology · Metabolic modeling · Microfluidics</p>
+
+            <div style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem;">
+              {[
+                { icon: '🧪', text: 'Complete computational pipeline — 7,600+ lines Python, genome-scale metabolic modeling (iJDZ836), ColabFold structural validation' },
+                { icon: '🔍', text: 'Screened 9,976 knockout combinations using a custom Composite Orthogonality Score; designed and validated two optogenetic constructs (pLDDT 91 and 88)' },
+                { icon: '📋', text: 'Provisional patent draft complete — five claim families ready to file within 30 days of legal engagement' },
+                { icon: '🏗️', text: 'Designed the H-tree chip scaffold (10×10 mm, 16 ports, 4 levels) with channel dimensions verified against N. crassa hyphal geometry' },
+              ].map(item => (
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                  <span style="font-size:1.25rem; line-height:1.4; flex-shrink:0;">{item.icon}</span>
+                  <p style="font-size:0.9375rem; color:#8B95A5; line-height:1.65; margin:0;">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <!-- Metrics row -->
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; padding:1.5rem; background:#111827; border-radius:10px; border:1px solid #1F2937;">
+              {[
+                { val: '7,600+', label: 'Lines of Python', color: '#00D4AA' },
+                { val: '9,976', label: 'KO pairs screened', color: '#00D4AA' },
+                { val: '2', label: 'Validated constructs', color: '#F8F9FA' },
+                { val: '5', label: 'Patent families', color: '#F5A623' },
+              ].map(m => (
+                <div style="text-align:center;">
+                  <p style={`font-size:1.5rem; font-weight:700; color:${m.color}; margin:0; font-family:var(--font-display);`}>{m.val}</p>
+                  <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">{m.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open roles -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-label">Key Hires &amp; Advisors Needed</span>
+        <h2 class="headline">Join the founding team</h2>
+        <p class="subhead" style="max-width:520px; margin:0 auto;">Three roles needed to execute the 12-month milestone plan. Competitive equity + salary post-seed.</p>
+      </div>
+
+      <div class="grid-3 reveal-stagger">
+        {openRoles.map(role => (
+          <div class="card" style={`border-top:2px solid ${role.color};`}>
+            <div style="display:flex; align-items:center; gap:0.875rem; margin-bottom:1rem;">
+              <span style={`display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgba(0,0,0,0.3); border:1px solid ${role.color}33; font-size:1.375rem; flex-shrink:0;`}>{role.icon}</span>
+              <div>
+                <h3 style="font-size:1.0625rem; font-weight:600; color:#F8F9FA; margin:0;">{role.title}</h3>
+                <p style={`font-size:0.75rem; color:${role.color}; margin:0.125rem 0 0; font-weight:500;`}>{role.type}</p>
+              </div>
+            </div>
+
+            <p style="font-size:0.875rem; color:#8B95A5; line-height:1.65; margin:0 0 1.25rem;">{role.desc}</p>
+
+            <div style="margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 0.625rem;">Requirements</p>
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.375rem;">
+                {role.requirements.map(r => (
+                  <li style="display:flex; gap:0.5rem; align-items:flex-start;">
+                    <span style={`color:${role.color}; flex-shrink:0; font-size:0.875rem;`}>→</span>
+                    <span style="font-size:0.8125rem; color:#8B95A5; line-height:1.5;">{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href="/contact" class="btn-secondary" style={`width:100%; justify-content:center; border-color:${role.color}; color:${role.color};`}>
+              Get in Touch
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Advisors placeholder -->
+      <div class="reveal" style="margin-top:3rem; text-align:center; padding:3rem; border:1px dashed #1F2937; border-radius:12px;">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#8B95A5; margin:0 0 0.75rem;">Advisory Board</p>
+        <h3 style="font-size:1.25rem; font-weight:600; color:#F8F9FA; margin:0 0 0.75rem;">Advisory board forming</h3>
+        <p style="color:#8B95A5; font-size:0.9375rem; margin:0 0 1.5rem; max-width:400px; margin-left:auto; margin-right:auto;">Seeking advisors with expertise in synthetic biology, microfluidics, and life sciences commercialization.</p>
+        <a href="/contact" class="btn-secondary">Interested in advising? Contact us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

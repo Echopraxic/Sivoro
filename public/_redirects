@@ -1,0 +1,3 @@
+# Cloudflare Pages — Astro static MPA
+# Each route has its own index.html, no redirects needed.
+# 404 fallback handled automatically by Cloudflare Pages.

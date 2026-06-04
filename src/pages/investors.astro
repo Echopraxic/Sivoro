@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const funds = [
+  { category: 'Wet-lab startup', amount: '$400k', pct: 27, desc: 'Tissue culture hood, incubators, −80°C, SEC-MALS service contract', color: '#00D4AA' },
+  { category: 'Strain construction', amount: '$300k', pct: 20, desc: '2 RA salaries · 18 months', color: '#00B894' },
+  { category: 'Founder salary + ops', amount: '$250k', pct: 17, desc: '18 months runway', color: '#2B7FFF' },
+  { category: 'Protein validation', amount: '$200k', pct: 13, desc: 'E. coli / Pichia expression, purification, BLI/SPR', color: '#5B9FFF' },
+  { category: 'Chip prototyping', amount: '$150k', pct: 10, desc: 'SU-8 masters, PDMS, photomasks, microscope time', color: '#F5A623' },
+  { category: 'IP legal', amount: '$100k', pct: 7, desc: 'Provisional + non-provisional + FTO · US + PCT option', color: '#F7B84B' },
+  { category: 'Contingency (15%)', amount: '$100k', pct: 7, desc: 'Unforeseen costs', color: '#4B5563' },
+];
+
+const risks = [
+  {
+    risk: 'HEX1 does not oligomerize in the fusion construct',
+    mitigation: 'Fallback: full-length HEX1 or engineered self-assembly domain. HEX1 oligomerization is well-characterized; compact domain variant is a conservative optimization, not a prerequisite.',
+  },
+  {
+    risk: 'Jα C-terminus loses ePDZ binding after fusion',
+    mitigation: 'Fallback: SpyCatcher/SpyTag system — covalent, C-terminus independent. Multiple alternative PDZ pairs identified in FTO review.',
+  },
+  {
+    risk: 'Δwc-1 affects growth rate unexpectedly',
+    mitigation: 'No published metabolic role for Δwc-1 in carbon metabolism. Contingency: alternative promoters or partial WC-1 truncations that preserve optogenetic response without growth penalty.',
+  },
+  {
+    risk: 'Regulatory delays (FDA for Sivoro Dx)',
+    mitigation: 'Start with RUO products only — academic and pharma R&D, no clearance required. Sivoro Start and Sivoro Organ require no FDA oversight. Dx timeline begins 2029+ with a full 510(k) runway.',
+  },
+];
+---
+
+<BaseLayout
+  title="Investors | Sivoro Microfluidics"
+  description="Seed round open — $1.5M at $6M pre-money ($7.5M post). 18-month runway to prototype and first customer. Five patent families, all computational phases complete. Download the pitch deck."
+  keywords="microfluidics seed round, biotech investment 2026, synthetic biology startup funding, organ-on-chip investment, microfluidics IP, living chip investment, Sivoro pitch deck"
+>
+  <!-- Hero -->
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;">
+        <span class="section-label">Investment Opportunity</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem);">Seed Round Open</h1>
+        <p class="subhead">$1.5M to take a fully-validated computational platform into wet-lab, reach functional prototype, and land first customer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key metrics -->
+  <section style="padding:2.5rem 0; background:#111827; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal-stagger reveal" style="display:grid; grid-template-columns:repeat(6,1fr); gap:1.5rem; text-align:center;">
+        {[
+          { label: 'Round', val: 'Seed', c: '#00D4AA' },
+          { label: 'Amount', val: '$1.5M', c: '#00D4AA' },
+          { label: 'Pre-money', val: '$6M', c: '#F8F9FA' },
+          { label: 'Post-money', val: '$7.5M', c: '#F8F9FA' },
+          { label: 'Runway', val: '18 months', c: '#F8F9FA' },
+          { label: 'Goal', val: 'Prototype + first sale', c: '#F5A623' },
+        ].map(m => (
+          <div>
+            <p style={`font-size:clamp(1rem,2.5vw,1.375rem); font-weight:700; color:${m.c}; margin:0; font-family:var(--font-display); line-height:1.2;`}>{m.val}</p>
+            <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0; text-transform:uppercase; letter-spacing:0.08em;">{m.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why now -->
+  <section class="bg-dark">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+        <div class="reveal">
+          <span class="section-label">Why Now</span>
+          <h2 class="headline">One wet-lab milestone from a functional prototype</h2>
+          <p class="subhead" style="margin-bottom:2rem;">All computational phases are complete — metabolic modeling, KO screening, structural validation, scaffold design. The seed round funds the transition to physical reality.</p>
+
+          <blockquote style="font-style:italic; color:#F8F9FA; border-left:3px solid #00D4AA; padding-left:1.25rem; margin:0 0 2rem; font-size:1.0625rem; line-height:1.7;">
+            "We are one wet-lab milestone away from a functional prototype — exactly what this seed round funds."
+          </blockquote>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            {[
+              { done: true,  label: 'Genome-scale metabolic model (iJDZ836)' },
+              { done: true,  label: '9,976 KO pairs screened — chassis validated in silico' },
+              { done: true,  label: 'LOV2-Jα-HEX1 + SPA1-ePDZ — pLDDT 91 & 88' },
+              { done: true,  label: 'H-tree scaffold designed (10×10 mm, 16 ports)' },
+              { done: true,  label: 'Provisional patent draft — 5 families, 30-day file' },
+              { done: false, label: 'Wet-lab validation (M2–M12)', next: true },
+            ].map(item => (
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style={`display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; flex-shrink:0; font-size:0.75rem; background:${item.done ? 'rgba(0,212,170,0.15)' : item.next ? 'rgba(245,166,35,0.15)' : 'rgba(75,85,99,0.3)'}; color:${item.done ? '#00D4AA' : item.next ? '#F5A623' : '#4B5563'}; border:1px solid ${item.done ? 'rgba(0,212,170,0.3)' : item.next ? 'rgba(245,166,35,0.3)' : '#374151'};`}>
+                  {item.done ? '✓' : '→'}
+                </span>
+                <span style={`font-size:0.9rem; color:${item.done ? '#F8F9FA' : item.next ? '#F5A623' : '#8B95A5'};`}>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="card" style="border:1px solid rgba(0,212,170,0.25); padding:2rem;">
+            <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1.5rem;">12-Month Milestones</p>
+            <div style="display:flex; flex-direction:column; gap:0.875rem;">
+              {[
+                { mo: 'M2', label: 'Construct six-gene chassis', metric: 'PCR-verified KOs' },
+                { mo: 'M4', label: 'SEC-MALS on CompA_v3', metric: 'R_h ≥ 28 nm' },
+                { mo: 'M6', label: 'BLI/SPR binding confirmed', metric: 'K_d ≤ 1 µM lit' },
+                { mo: 'M8', label: 'Valve functional', metric: '≥50% pore closure' },
+                { mo: 'M10', label: 'Chip colonization', metric: 'Fluorescent flow' },
+                { mo: 'M12', label: 'First customer', metric: 'LOI from 3 labs' },
+              ].map((m, i) => (
+                <div style={`display:flex; align-items:center; gap:1rem; padding:0.75rem; background:#0B0F19; border-radius:6px; border-left:2px solid ${i < 4 ? '#00D4AA' : '#F5A623'};`}>
+                  <span style={`font-size:0.75rem; font-weight:700; color:${i < 4 ? '#00D4AA' : '#F5A623'}; min-width:28px;`}>{m.mo}</span>
+                  <div style="flex:1;">
+                    <p style="font-size:0.875rem; font-weight:500; color:#F8F9FA; margin:0;">{m.label}</p>
+                    <p style="font-size:0.75rem; color:#8B95A5; margin:0.125rem 0 0; font-family:var(--font-mono);">{m.metric}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use of funds -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-label">Use of Funds</span>
+        <h2 class="headline">$1.5M seed — 18 months to prototype + first sale</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;" class="reveal">
+        <div>
+          <div style="overflow-x:auto; border-radius:10px; border:1px solid #1F2937;">
+            <table class="data-table" style="min-width:400px;">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th style="text-align:right;">Amount</th>
+                  <th style="text-align:right;">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {funds.map(f => (
+                  <tr>
+                    <td>
+                      <div style="display:flex; align-items:center; gap:0.625rem;">
+                        <div style={`width:10px; height:10px; border-radius:2px; background:${f.color}; flex-shrink:0;`}></div>
+                        <span style="color:#F8F9FA; font-weight:500;">{f.category}</span>
+                      </div>
+                      <p style="font-size:0.75rem; color:#8B95A5; margin:0.125rem 0 0 1.625rem;">{f.desc}</p>
+                    </td>
+                    <td style="text-align:right; color:#00D4AA; font-weight:600;">{f.amount}</td>
+                    <td style="text-align:right; color:#8B95A5;">{f.pct}%</td>
+                  </tr>
+                ))}
+                <tr style="border-top:2px solid #374151;">
+                  <td style="color:#F8F9FA; font-weight:700;">Total</td>
+                  <td style="text-align:right; color:#00D4AA; font-weight:700; font-size:1rem;">$1,500k</td>
+                  <td style="text-align:right; color:#8B95A5; font-weight:600;">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Allocation bars -->
+        <div>
+          <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 1.25rem;">Allocation</p>
+          <div style="display:flex; flex-direction:column; gap:0.875rem;" id="fund-bars">
+            {funds.map(f => (
+              <div class="fund-bar-item" data-pct={f.pct}>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;">
+                  <span style="font-size:0.8125rem; color:#F8F9FA;">{f.category}</span>
+                  <span style={`font-size:0.8125rem; font-weight:600; color:${f.color};`}>{f.amount}</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fund-fill" data-pct={f.pct} style={`background:${f.color};`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style="margin-top:2rem; padding:1.25rem; background:#0B0F19; border-radius:8px; border:1px solid rgba(245,166,35,0.2);">
+            <p style="font-size:0.75rem; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.5rem;">Next Round</p>
+            <p style="font-size:1rem; font-weight:700; color:#F8F9FA; margin:0;">Series A · $5M · 2027</p>
+            <p style="font-size:0.875rem; color:#8B95A5; margin:0.25rem 0 0;">Scale production · Hire sales · Enter pharma pilots</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk mitigation -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="reveal" style="max-width:760px; margin:0 auto;">
+        <span class="section-label" style="display:block; text-align:center; margin-bottom:0.75rem;">Risk &amp; Mitigation</span>
+        <h2 class="headline" style="text-align:center; margin-bottom:2.5rem;">Key Risks &amp; Mitigations</h2>
+
+        <div id="risk-accordion">
+          {risks.map((r, i) => (
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span style="font-size:0.9375rem;">{r.risk}</span>
+                <svg class="accordion-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 8l5 5 5-5"/>
+                </svg>
+              </button>
+              <div class="accordion-body">
+                <div style="padding:0.75rem; background:rgba(0,212,170,0.05); border-left:3px solid #00D4AA; border-radius:4px;">
+                  <p style="font-size:0.8125rem; font-weight:600; color:#00D4AA; margin:0 0 0.375rem; text-transform:uppercase; letter-spacing:0.08em;">Mitigation</p>
+                  <p style="margin:0; color:#8B95A5;">{r.mitigation}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pitch deck download -->
+  <section id="deck" class="bg-surface">
+    <div class="container">
+      <div class="reveal" style="max-width:640px; margin:0 auto; text-align:center; border:1px solid rgba(0,212,170,0.25); border-radius:16px; padding:clamp(2rem,4vw,3rem);">
+        <span class="section-label" style="display:block; margin-bottom:1rem;">Investor Materials</span>
+        <h2 class="headline" style="margin-bottom:0.75rem;">Ready to Learn More?</h2>
+        <p class="subhead" style="margin-bottom:2rem;">Download the full pitch deck, or reach out directly to schedule a conversation.</p>
+
+        <div style="display:flex; flex-direction:column; gap:1rem; align-items:center;">
+          <a href="/documents/sivoro-pitch-deck.pdf" download class="btn-primary" style="width:100%; justify-content:center; max-width:320px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Pitch Deck (PDF)
+          </a>
+          <a href="mailto:investors@sivoro.bio" class="btn-secondary" style="width:100%; justify-content:center; max-width:320px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            investors@sivoro.bio
+          </a>
+        </div>
+
+        <p style="font-size:0.8125rem; color:#8B95A5; margin:1.5rem 0 0;">
+          Ann Arbor, Michigan · April 2026 · Pre-money $6M
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+// Accordion
+document.querySelectorAll('.accordion-item').forEach(item => {
+  const btn = item.querySelector<HTMLButtonElement>('.accordion-header')!;
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Fund allocation bars
+(function() {
+  const container = document.getElementById('fund-bars');
+  if (!container) return;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      container.querySelectorAll<HTMLElement>('.fund-fill').forEach(el => {
+        el.style.width = (el.dataset.pct ?? '0') + '%';
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  obs.observe(container);
+})();
+</script>

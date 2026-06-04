@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const models = [
+  {
+    icon: '🧫',
+    title: 'Beta Testing Program',
+    desc: 'Free Sivoro Start kits to qualified academic labs in exchange for structured feedback data and a co-authorship agreement on resulting publications.',
+    details: ['No cost to academic PI', 'Structured usage report', 'Co-authorship on publications', 'Priority access to upgrades'],
+    color: '#00D4AA',
+  },
+  {
+    icon: '🔬',
+    title: 'Co-Development',
+    desc: 'Custom strain engineering partnerships. Work with Sivoro to build application-specific chassis variants for your research domain.',
+    details: ['Application-specific strains', 'Shared IP negotiated upfront', 'Technical support throughout', 'Joint milestone planning'],
+    color: '#2B7FFF',
+  },
+  {
+    icon: '📄',
+    title: 'Joint Publications',
+    desc: 'Shared authorship on methods papers, validation datasets, and application notes. Help us build the scientific literature around living microfluidics.',
+    details: ['Shared first/co-authorship', 'Data sharing agreement', 'Pre-publication review', 'Open-access preferred'],
+    color: '#F5A623',
+  },
+  {
+    icon: '🏛️',
+    title: 'SBIR Partnership',
+    desc: 'Collaborate on NSF/NIH SBIR/STTR grant applications. Academic co-investigators welcome — particularly in microfluidics, synthetic biology, and organ-on-chip.',
+    details: ['NSF SBIR Phase I target', 'NIH STTR pathway open', 'Academic co-PI welcome', 'Indirect cost pass-through'],
+    color: '#8B95A5',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Who owns IP from beta testing?',
+    a: 'Sivoro retains ownership of the underlying strain and scaffold IP. Any application-specific discoveries made by the partner lab using our platform belong to the partner institution. We ask for a right-of-first-negotiation on commercializing co-developed application IP.',
+  },
+  {
+    q: 'What does an MTA cover?',
+    a: 'Our standard Material Transfer Agreement covers use limitations (research only, BSL-1 containment), no redistribution, and reporting obligations. For co-development partnerships a separate sponsored research agreement is used. Legal review typically takes 2–4 weeks.',
+  },
+  {
+    q: 'Can we publish using Sivoro strains?',
+    a: 'Yes — publication is encouraged. We ask for a 30-day pre-publication review period to check for inadvertent IP disclosure. Co-authorship is offered in exchange for substantial intellectual contribution; acknowledgment is sufficient for materials-only use.',
+  },
+  {
+    q: 'How are strains distributed?',
+    a: 'Strains are shipped as glycerol stocks at −80°C with a certificate of analysis. Currently we distribute within the US only. International distribution pending export license review. Typical lead time is 3–4 weeks after MTA execution.',
+  },
+];
+---
+
+<BaseLayout
+  title="Partners | Sivoro Microfluidics"
+  description="Partner with Sivoro Microfluidics — beta testing, co-development, joint publications, and SBIR collaboration."
+>
+  <!-- Hero -->
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;">
+        <span class="section-label">Partners</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem);">Collaborate with Living Technology</h1>
+        <p class="subhead">Partner with us to advance fungal microfluidics. We're looking for academic labs, pharma R&D groups, and grant collaborators for our initial beta cohort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration models -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-label">Collaboration Models</span>
+        <h2 class="headline">Four ways to partner</h2>
+      </div>
+      <div class="grid-2 reveal-stagger">
+        {models.map(m => (
+          <div class="card" style={`border-left:3px solid ${m.color};`}>
+            <div style="display:flex; align-items:center; gap:0.875rem; margin-bottom:0.875rem;">
+              <span style="font-size:1.75rem;">{m.icon}</span>
+              <h3 style="font-size:1.0625rem; font-weight:600; color:#F8F9FA; margin:0;">{m.title}</h3>
+            </div>
+            <p style="font-size:0.9rem; color:#8B95A5; line-height:1.65; margin:0 0 1rem;">{m.desc}</p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.375rem;">
+              {m.details.map(d => (
+                <li style="display:flex; gap:0.5rem; font-size:0.8125rem; color:#8B95A5;">
+                  <span style={`color:${m.color}; flex-shrink:0;`}>→</span> {d}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry form (mailto) -->
+  <section class="bg-surface">
+    <div class="container" style="max-width:760px; margin:0 auto;">
+      <div class="reveal" style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="headline">Partnership Inquiry</h2>
+        <p class="subhead">Email us directly — we respond to all partnership inquiries within 2 business days.</p>
+      </div>
+
+      <div class="reveal" style="text-align:center; padding:3rem; border:1px solid rgba(0,212,170,0.2); border-radius:16px;">
+        <div style="margin-bottom:2rem;">
+          <p style="font-size:0.875rem; color:#8B95A5; margin:0 0 0.5rem;">Send your inquiry to:</p>
+          <a href="mailto:partners@sivoro.bio" style="font-size:1.5rem; font-weight:700; color:#00D4AA; text-decoration:none;">partners@sivoro.bio</a>
+        </div>
+
+        <p style="font-size:0.875rem; color:#8B95A5; margin:0 0 1.5rem; max-width:440px; margin-left:auto; margin-right:auto;">
+          Include your institution, PI name, research area, and which collaboration model interests you. We'll respond with an MTA and next steps.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; margin-bottom:2rem;">
+          {['Beta Testing', 'Co-Development', 'Joint Publications', 'SBIR Partnership'].map(tag => (
+            <span class="badge badge-cyan">{tag}</span>
+          ))}
+        </div>
+
+        <a href="mailto:partners@sivoro.bio?subject=Partnership%20Inquiry%20—%20Sivoro%20Microfluidics&body=Institution%3A%0API%20Name%3A%0AResearch%20Area%3A%0ACollaboration%20Interest%3A%0AMessage%3A" class="btn-primary">
+          Send Partnership Inquiry →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-dark">
+    <div class="container" style="max-width:720px; margin:0 auto;">
+      <div class="reveal" style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-label">FAQ</span>
+        <h2 class="headline">Common Questions</h2>
+      </div>
+      <div class="reveal" id="partner-faq">
+        {faqs.map(f => (
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>{f.q}</span>
+              <svg class="accordion-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 8l5 5 5-5"/>
+              </svg>
+            </button>
+            <div class="accordion-body">{f.a}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+document.querySelectorAll('.accordion-item').forEach(item => {
+  item.querySelector('.accordion-header')!.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => { i.classList.remove('open'); i.querySelector('.accordion-header')!.setAttribute('aria-expanded','false'); });
+    if (!open) { item.classList.add('open'); item.querySelector('.accordion-header')!.setAttribute('aria-expanded','true'); }
+  });
+});
+</script>

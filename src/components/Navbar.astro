@@ -1,0 +1,245 @@
+---
+const navLinks = [
+  { label: 'Technology', href: '/technology' },
+  { label: 'Science', href: '/science' },
+  { label: 'Products', href: '/products' },
+  { label: 'Team', href: '/team' },
+];
+---
+
+<header id="navbar" class="navbar">
+  <div class="container">
+    <nav class="nav-inner" role="navigation" aria-label="Main">
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="Sivoro Microfluidics home">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="#00D4AA" stroke-width="1.5"/>
+          <path d="M8 10 Q14 6 20 10 Q14 14 8 10Z" fill="#00D4AA" opacity="0.8"/>
+          <path d="M8 14 Q14 10 20 14 Q14 18 8 14Z" fill="#00D4AA" opacity="0.5"/>
+          <path d="M8 18 Q14 14 20 18 Q14 22 8 18Z" fill="#00D4AA" opacity="0.3"/>
+        </svg>
+        <span class="nav-wordmark">SIVORO</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Desktop CTAs -->
+      <div class="nav-ctas">
+        <a href="/investors" class="nav-investor">Investors</a>
+        <a href="/contact" class="btn-primary" style="padding: 0.5rem 1.125rem; font-size:0.875rem;">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-inner">
+    <button id="menu-close" class="menu-close" aria-label="Close navigation menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <ul role="list" style="list-style:none; padding:0; margin:0;">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="mobile-link">{link.label}</a>
+        </li>
+      ))}
+      <li><a href="/investors" class="mobile-link">Investors</a></li>
+      <li><a href="/contact" class="mobile-link">Contact</a></li>
+    </ul>
+    <a href="/investors" class="btn-primary" style="margin-top:2rem; width:100%; justify-content:center;">
+      Download Pitch Deck
+    </a>
+  </div>
+</div>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1F2937;
+    transition: background 300ms;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    gap: 2rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-wordmark {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #F8F9FA;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.9rem;
+    color: #8B95A5;
+    text-decoration: none;
+    transition: color 200ms;
+    white-space: nowrap;
+  }
+  .nav-link:hover { color: #F8F9FA; }
+
+  .nav-ctas {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .nav-investor {
+    font-size: 0.9rem;
+    color: #00D4AA;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 200ms;
+  }
+  .nav-investor:hover { color: #00f0c2; }
+
+  /* Mobile toggle */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+  }
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #F8F9FA;
+    border-radius: 2px;
+    transition: transform 300ms;
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #0B0F19;
+    transform: translateX(100%);
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+
+  .mobile-menu-inner {
+    padding: 5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: #8B95A5;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .menu-close:hover { color: #F8F9FA; }
+
+  .mobile-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #F8F9FA;
+    text-decoration: none;
+    border-bottom: 1px solid #1F2937;
+    transition: color 200ms;
+  }
+  .mobile-link:hover { color: #00D4AA; }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-ctas { display: none; }
+    .menu-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!;
+  const close = document.getElementById('menu-close')!;
+  const menu = document.getElementById('mobile-menu')!;
+
+  function openMenu() {
+    menu.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', openMenu);
+  close.addEventListener('click', closeMenu);
+
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>

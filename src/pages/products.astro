@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const products = [
+  {
+    id: 'start',
+    year: '2026–27',
+    name: 'Sivoro Start',
+    tagline: 'The research kit',
+    desc: 'Strain + scaffold kit for academic labs. Drop-in replacement for standard PDMS protocols. Includes engineered N. crassa strain, H-tree scaffold masters, growth media, and protocols.',
+    market: 'University research labs',
+    price: '$2,500 / kit',
+    recurring: '$500 reagent kit (20 assays)',
+    margin: '70%',
+    status: 'Development',
+    color: '#00D4AA',
+    features: ['Engineered N. crassa strain', 'H-tree scaffold masters', 'Xylose growth media', 'Protocol documentation', 'Email support'],
+  },
+  {
+    id: 'organ',
+    year: '2027–28',
+    name: 'Sivoro Organ',
+    tagline: 'The pharma platform',
+    desc: 'Organ-on-chip integration targeting liver, gut, and blood-brain barrier models. Includes custom strain engineering and multi-year service contracts for pharma R&D teams.',
+    market: 'Pharma R&D',
+    price: '$50k–150k platform',
+    recurring: '$10k–30k annual service',
+    margin: '60%',
+    status: 'Planned 2027',
+    color: '#2B7FFF',
+    features: ['Organ-specific strain variants', 'Co-culture integration', 'Custom channel geometries', 'Dedicated technical support', 'Annual service contract'],
+  },
+  {
+    id: 'license',
+    year: '2028–29',
+    name: 'Sivoro License',
+    tagline: 'The IP stream',
+    desc: 'License Sivoro strain and valve IP to existing PDMS chip manufacturers. Non-exclusive royalties of 5–7%; exclusive arrangements at 10–12% plus upfront. Pure IP — lowest cost to deliver.',
+    market: 'Microfluidics OEMs',
+    price: '5–10% royalty',
+    recurring: 'Exclusive: 10–12% + upfront',
+    margin: '90%',
+    status: 'Planned 2028',
+    color: '#F5A623',
+    features: ['Strain IP license', 'Optogenetic valve IP', 'Transfer package', 'Field of use restrictions', 'Sub-licensing rights'],
+  },
+  {
+    id: 'dx',
+    year: '2029+',
+    name: 'Sivoro Dx',
+    tagline: 'The diagnostic device',
+    desc: 'Diagnostic device for point-of-care testing. Starting as RUO (research use only) for academic and pharma R&D, then following 510(k) pathway for clinical applications.',
+    market: 'Clinical / RUO',
+    price: 'Per-assay pricing',
+    recurring: 'Subscription panel model',
+    margin: '75%+',
+    status: 'Planned 2029+',
+    color: '#8B95A5',
+    features: ['RUO initial release', '510(k) pathway', 'CLIA-waived target', 'Point-of-care format', 'Per-assay economics'],
+  },
+];
+
+const tamData = [
+  { label: 'Academic microfluidics', value: 500, color: '#00D4AA' },
+  { label: 'Organ-on-chip by 2030', value: 2000, color: '#2B7FFF' },
+  { label: 'PDMS replacement licensing', value: 5000, color: '#F5A623' },
+];
+---
+
+<BaseLayout
+  title="Products | Sivoro Microfluidics"
+  description="Four products: Sivoro Start academic kit ($2,500), Sivoro Organ pharma platform ($50k–150k), Sivoro License IP royalties (5–10%), and Sivoro Dx diagnostic device. Expanding margin over time."
+  keywords="microfluidics research kit, organ-on-chip platform, microfluidics IP licensing, lab-on-chip products, fungal microfluidics, academic research tools, pharma R&D microfluidics, Sivoro Start"
+>
+  <!-- Hero -->
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;">
+        <span class="section-label">Products</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem);">From Academic Kits to Platform Licensing</h1>
+        <p class="subhead">Four products, expanding margin over time. Start with research kits, grow into pharma platforms and IP royalties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product cards -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="reveal" style="display:flex; flex-direction:column; gap:2rem;">
+        {products.map((p, i) => (
+          <div id={p.id} class="card" style={`border-left:3px solid ${p.color}; display:grid; grid-template-columns:200px 1fr auto; gap:2rem; align-items:start; opacity:${p.status.includes('Planned') ? 0.85 : 1};`}>
+            <div>
+              <span style={`font-size:0.75rem; font-weight:600; letter-spacing:0.1em; color:${p.color}; text-transform:uppercase;`}>{p.year}</span>
+              <h3 style="font-size:1.375rem; font-weight:700; color:#F8F9FA; margin:0.25rem 0 0.25rem; font-family:var(--font-display);">{p.name}</h3>
+              <p style={`font-size:0.8125rem; color:${p.color}; margin:0 0 0.75rem;`}>{p.tagline}</p>
+              <span style={`display:inline-block; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.7rem; font-weight:600; background:${p.status === 'Development' ? 'rgba(0,212,170,0.12)' : 'rgba(139,149,165,0.1)'}; color:${p.status === 'Development' ? '#00D4AA' : '#8B95A5'}; border:1px solid ${p.status === 'Development' ? 'rgba(0,212,170,0.25)' : 'rgba(139,149,165,0.2)'};`}>
+                {p.status}
+              </span>
+            </div>
+
+            <div>
+              <p style="font-size:0.9375rem; color:#8B95A5; line-height:1.65; margin:0 0 1rem;">{p.desc}</p>
+              <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+                {p.features.map(f => (
+                  <span style="display:inline-flex; align-items:center; gap:0.3rem; font-size:0.75rem; color:#8B95A5; padding:0.2rem 0.5rem; background:#1F2937; border-radius:4px;">
+                    <span style={`color:${p.color};`}>✓</span> {f}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div style="min-width:160px; text-align:right;">
+              <p style="font-size:0.75rem; color:#8B95A5; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 0.25rem;">Price point</p>
+              <p style={`font-size:1.125rem; font-weight:700; color:${p.color}; margin:0 0 0.5rem; font-family:var(--font-display);`}>{p.price}</p>
+              {p.recurring && <p style="font-size:0.8125rem; color:#8B95A5; margin:0 0 0.75rem;">{p.recurring}</p>}
+              <div style="display:flex; align-items:center; gap:0.5rem; justify-content:flex-end;">
+                <span style="font-size:0.75rem; color:#8B95A5;">Gross margin</span>
+                <span style={`font-size:1rem; font-weight:700; color:${p.color};`}>{p.margin}</span>
+              </div>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">{p.market}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TAM Expansion -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-label">Market Opportunity</span>
+        <h2 class="headline">TAM Expansion</h2>
+        <p class="subhead" style="max-width:520px; margin:0 auto;">Each product tier unlocks a larger addressable market, compounding total opportunity.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;" class="reveal">
+        <div>
+          <div id="tam-chart" style="position:relative; height:260px;">
+            <canvas id="tam-canvas" style="width:100%; height:100%;"></canvas>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          {tamData.map((t, i) => (
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+                <span style={`font-size:0.9375rem; font-weight:600; color:${t.color};`}>${(t.value / 1000).toFixed(t.value >= 1000 ? 0 : 1)}B{t.value < 1000 ? 'M' : ''}</span>
+                <span style="font-size:0.8125rem; color:#8B95A5;">{t.label}</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill tam-bar" data-pct={Math.round(t.value / 50)} style={`background:${t.color}; max-width:100%;`}></div>
+              </div>
+            </div>
+          ))}
+
+          <div style="margin-top:0.5rem; padding:1rem; background:#0B0F19; border-radius:8px; border:1px solid #1F2937;">
+            <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
+              The $25B total microfluidics market is our ceiling — but Sivoro's unique living-chip position enables entry across all three segments sequentially.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue model -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-label">Business Model</span>
+        <h2 class="headline">Three revenue streams, expanding margin over time</h2>
+      </div>
+
+      <div class="grid-3 reveal-stagger">
+        <div class="card" style="border-top:2px solid #00D4AA;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+            <div>
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.25rem;">Stream 1</p>
+              <h3 style="font-size:1.125rem; font-weight:600; color:#F8F9FA; margin:0;">Academic Kits</h3>
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0.125rem 0 0;">2026–2028</p>
+            </div>
+            <span style="font-size:2rem; font-weight:700; color:#00D4AA; font-family:var(--font-display);">70%</span>
+          </div>
+          <p style="font-size:0.875rem; color:#8B95A5; line-height:1.65; margin:0 0 1rem;">Sivoro Start kit: strain + scaffold + protocols. Recurring revenue from media replacements and strain upgrades.</p>
+          <div style="padding:0.75rem; background:#0B0F19; border-radius:6px; border:1px solid #1F2937;">
+            <p style="font-size:0.8125rem; color:#F8F9FA; margin:0;"><strong>$2,500</strong> starter · <strong>$500</strong> reagent kit (20 assays)</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top:2px solid #2B7FFF;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+            <div>
+              <p style="font-size:0.75rem; font-weight:600; color:#2B7FFF; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.25rem;">Stream 2</p>
+              <h3 style="font-size:1.125rem; font-weight:600; color:#F8F9FA; margin:0;">Pharma Platforms</h3>
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0.125rem 0 0;">2027–2030</p>
+            </div>
+            <span style="font-size:2rem; font-weight:700; color:#2B7FFF; font-family:var(--font-display);">60%</span>
+          </div>
+          <p style="font-size:0.875rem; color:#8B95A5; line-height:1.65; margin:0 0 1rem;">Sivoro Organ platform with organ-chip integration. Custom strain engineering + service contracts.</p>
+          <div style="padding:0.75rem; background:#0B0F19; border-radius:6px; border:1px solid #1F2937;">
+            <p style="font-size:0.8125rem; color:#F8F9FA; margin:0;"><strong>$50k–150k</strong> platform · <strong>$10k–30k</strong> annual service</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top:2px solid #F5A623;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+            <div>
+              <p style="font-size:0.75rem; font-weight:600; color:#F5A623; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.25rem;">Stream 3</p>
+              <h3 style="font-size:1.125rem; font-weight:600; color:#F8F9FA; margin:0;">IP Licensing</h3>
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0.125rem 0 0;">2028+</p>
+            </div>
+            <span style="font-size:2rem; font-weight:700; color:#F5A623; font-family:var(--font-display);">90%</span>
+          </div>
+          <p style="font-size:0.875rem; color:#8B95A5; line-height:1.65; margin:0 0 1rem;">License strain + valve IP to PDMS manufacturers. Pure IP — lowest cost to deliver.</p>
+          <div style="padding:0.75rem; background:#0B0F19; border-radius:6px; border:1px solid #1F2937;">
+            <p style="font-size:0.8125rem; color:#F8F9FA; margin:0;"><strong>Non-exclusive:</strong> 5–7% royalty · <strong>Exclusive:</strong> 10–12% + upfront</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Year 3 revenue mix -->
+      <div class="reveal" style="margin-top:2rem; padding:1.25rem 2rem; background:#111827; border-radius:10px; border:1px solid #1F2937;">
+        <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.12em; margin:0 0 1rem;">Year 3 Revenue Mix</p>
+        <div style="display:flex; gap:0; border-radius:6px; overflow:hidden; height:28px;">
+          <div style="flex:40; background:#00D4AA; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:0.75rem; font-weight:600; color:#0B0F19;">40% Kits</span>
+          </div>
+          <div style="flex:30; background:#2B7FFF; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:0.75rem; font-weight:600; color:#fff;">30% Platforms</span>
+          </div>
+          <div style="flex:30; background:#F5A623; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:0.75rem; font-weight:600; color:#0B0F19;">30% Licensing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+// Animate TAM bars on scroll
+(function() {
+  const container = document.getElementById('tam-chart');
+  if (!container) return;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      document.querySelectorAll<HTMLElement>('.tam-bar').forEach(el => {
+        el.style.width = Math.min(100, parseInt(el.dataset.pct ?? '0')) + '%';
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  obs.observe(container);
+
+  // TAM canvas chart
+  const canvas = document.getElementById('tam-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  function draw() {
+    const W = canvas.offsetWidth, H = canvas.offsetHeight;
+    canvas.width = W; canvas.height = H;
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(0, 0, W, H);
+
+    const data = [
+      { label: 'Academic\nMicrofluidics', value: 500, color: '#00D4AA', year: '2026' },
+      { label: 'Organ-on-Chip', value: 2000, color: '#2B7FFF', year: '2030' },
+      { label: 'PDMS\nReplacement', value: 5000, color: '#F5A623', year: '2029+' },
+    ];
+
+    const maxVal = 5000;
+    const pad = { t: 20, r: 20, b: 50, l: 50 };
+    const mW = W - pad.l - pad.r;
+    const mH = H - pad.t - pad.b;
+    const barW = mW / data.length * 0.55;
+    const gap = mW / data.length;
+
+    // Y axis label
+    ctx.fillStyle = '#4B5563'; ctx.font = '9px Inter, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('$5B', pad.l - 4, pad.t + 8);
+    ctx.fillText('$2.5B', pad.l - 4, pad.t + mH / 2 + 4);
+    ctx.fillText('$0', pad.l - 4, pad.t + mH + 4);
+
+    // Gridline
+    ctx.strokeStyle = '#1F2937'; ctx.lineWidth = 1; ctx.setLineDash([3,3]);
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t + mH / 2); ctx.lineTo(pad.l + mW, pad.t + mH / 2);
+    ctx.stroke(); ctx.setLineDash([]);
+
+    data.forEach((d, i) => {
+      const bh = (d.value / maxVal) * mH;
+      const bx = pad.l + gap * i + (gap - barW) / 2;
+      const by = pad.t + mH - bh;
+
+      // Bar gradient
+      const grad = ctx.createLinearGradient(bx, by, bx, pad.t + mH);
+      grad.addColorStop(0, d.color);
+      grad.addColorStop(1, d.color + '44');
+      ctx.fillStyle = grad;
+      if (ctx.roundRect) {
+        ctx.beginPath(); ctx.roundRect(bx, by, barW, bh, [4, 4, 0, 0]); ctx.fill();
+      } else {
+        ctx.fillRect(bx, by, barW, bh);
+      }
+
+      // Value label
+      ctx.fillStyle = d.color;
+      ctx.font = 'bold 11px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(d.value >= 1000 ? '$' + d.value / 1000 + 'B+' : '$' + d.value + 'M', bx + barW / 2, by - 6);
+
+      // X label
+      ctx.fillStyle = '#8B95A5';
+      ctx.font = '9px Inter, sans-serif';
+      const lines = d.label.split('\n');
+      lines.forEach((ln, li) => ctx.fillText(ln, bx + barW / 2, pad.t + mH + 14 + li * 12));
+    });
+  }
+
+  const o = new IntersectionObserver(e => { if (e[0].isIntersecting) { draw(); o.disconnect(); } }, { threshold: 0.2 });
+  o.observe(canvas);
+  window.addEventListener('resize', draw);
+})();
+</script>

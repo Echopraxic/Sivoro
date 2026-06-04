@@ -1,0 +1,811 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Technology | Sivoro Microfluidics"
+  description="Three layers of proprietary IP: metabolically orthogonal N. crassa chassis, optogenetic septal pore valve (100× dynamic range, 450 nm), and H-tree scaffold (10×10 mm, 16 ports)."
+  keywords="N. crassa optogenetics, septal pore valve, LOV2 HEX1 fusion, metabolic orthogonality, microfluidic scaffold, H-tree chip, synthetic biology IP, fungal microfluidics technology"
+>
+  <!-- Hero -->
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;">
+        <span class="section-label">Technology</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem); margin-bottom:1rem;">Three Layers of Proprietary IP</h1>
+        <p class="subhead" style="font-size:clamp(1rem,1.5vw,1.2rem);">From metabolic chassis to optogenetic valve to physical scaffold — each independently defensible, all synergistic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section class="bg-dark" style="padding-top:3rem;">
+    <div class="container">
+      <div class="tab-list" role="tablist" aria-label="Technology layers">
+        <button class="tab-btn active" role="tab" data-tab="chassis" aria-selected="true" aria-controls="panel-chassis">
+          Layer 1 — Chassis
+        </button>
+        <button class="tab-btn" role="tab" data-tab="valve" aria-selected="false" aria-controls="panel-valve">
+          Layer 2 — Valve
+        </button>
+        <button class="tab-btn" role="tab" data-tab="scaffold" aria-selected="false" aria-controls="panel-scaffold">
+          Layer 3 — Scaffold
+        </button>
+      </div>
+
+      <!-- TAB 1: Chassis -->
+      <div id="panel-chassis" class="tab-panel active" role="tabpanel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; padding-bottom:3rem;">
+          <div>
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00D4AA; margin:0 0 0.75rem;">Layer 1 — Chassis</p>
+            <h2 class="headline-sm">Metabolically Orthogonal <em>N. crassa</em></h2>
+            <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
+              The iJDZ836 genome-scale metabolic model describes a metabolically capable organism. On xylose (chow medium), wild-type <em>N. crassa</em> achieves 0.854 hr⁻¹ growth rate — confirming xylose as a preferred carbon source and valid chassis feed.
+            </p>
+            <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
+              The carbon source screen found 24 of 78 tested sources support growth. Gene essentiality analysis flagged ~130 of 836 genes (~15.5%) as essential — the hard boundary for knockout targeting.
+            </p>
+            <p style="color:#8B95A5; line-height:1.7; margin-bottom:2rem; font-size:0.9375rem;">
+              We screened <strong style="color:#F8F9FA;">9,976 viable double-knockout pairs</strong> from ~142 non-essential transporter and central carbon genes. The recommended chassis (Tier 1) achieves 30% of WT xylose growth — a doubling time of ~2.7 hr, sufficient for robust chip colonization.
+            </p>
+
+            <h3 style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0 0 1rem;">Phenotype Tiers</h3>
+            <div style="overflow-x:auto; border-radius:8px; border:1px solid #1F2937;">
+              <table class="data-table" style="min-width:400px;">
+                <thead>
+                  <tr>
+                    <th>Tier</th>
+                    <th>Ranks</th>
+                    <th>Characteristics</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge badge-cyan">1 — Best</span></td>
+                    <td class="highlight">1–16</td>
+                    <td>Best sugar blocking, ~30% WT xylose growth</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge" style="background:rgba(245,166,35,0.1); color:#F5A623; border:1px solid rgba(245,166,35,0.3);">2 — Balanced</span></td>
+                    <td>17–32</td>
+                    <td>More aggressive blocking, marginal xylose</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge" style="background:rgba(139,149,165,0.1); color:#8B95A5; border:1px solid rgba(139,149,165,0.3);">3 — Fitness</span></td>
+                    <td>33–50</td>
+                    <td>Best xylose fitness, weaker sugar blocking</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+              <div class="card" style="flex:1; min-width:180px; padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Model</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">iJDZ836</p>
+              </div>
+              <div class="card" style="flex:1; min-width:180px; padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">KO Pairs Screened</p>
+                <p style="font-size:1rem; font-weight:600; color:#00D4AA; margin:0;">9,976</p>
+              </div>
+              <div class="card" style="flex:1; min-width:180px; padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Growth Rate (xylose)</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">0.854 hr⁻¹</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chassis visual: simplified metabolic network diagram -->
+          <div>
+            <div class="card" style="padding:1.5rem; margin-bottom:1.5rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1rem;">Metabolic Orthogonality</p>
+              <!-- Simple SVG showing xylose vs glucose pathways -->
+              <svg viewBox="0 0 400 280" style="width:100%; display:block;" aria-label="Metabolic orthogonality diagram">
+                <defs>
+                  <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#00D4AA"/>
+                  </marker>
+                  <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#EF4444"/>
+                  </marker>
+                  <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#374151"/>
+                  </marker>
+                </defs>
+
+                <!-- Xylose (allowed) path -->
+                <rect x="10" y="20" width="80" height="36" rx="6" fill="rgba(0,212,170,0.15)" stroke="#00D4AA" stroke-width="1.5"/>
+                <text x="50" y="43" text-anchor="middle" font-size="12" fill="#00D4AA" font-weight="600">Xylose</text>
+
+                <line x1="90" y1="38" x2="160" y2="38" stroke="#00D4AA" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+                <text x="125" y="30" text-anchor="middle" font-size="10" fill="#00D4AA">✓ Metabolized</text>
+
+                <rect x="160" y="20" width="80" height="36" rx="6" fill="rgba(0,212,170,0.08)" stroke="#1F2937"/>
+                <text x="200" y="43" text-anchor="middle" font-size="11" fill="#F8F9FA">Xyl pathway</text>
+
+                <line x1="240" y1="38" x2="310" y2="38" stroke="#00D4AA" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+                <rect x="310" y="20" width="80" height="36" rx="6" fill="rgba(0,212,170,0.15)" stroke="#00D4AA" stroke-width="1.5"/>
+                <text x="350" y="38" text-anchor="middle" font-size="11" fill="#00D4AA" font-weight="600">Growth</text>
+                <text x="350" y="50" text-anchor="middle" font-size="9" fill="#8B95A5">~30% WT</text>
+
+                <!-- Glucose (blocked) path -->
+                <rect x="10" y="100" width="80" height="36" rx="6" fill="rgba(239,68,68,0.1)" stroke="#EF4444" stroke-width="1.5"/>
+                <text x="50" y="123" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="600">Glucose</text>
+
+                <line x1="90" y1="118" x2="155" y2="118" stroke="#EF4444" stroke-width="1.5"/>
+                <text x="115" y="109" text-anchor="middle" font-size="18" fill="#EF4444">⊘</text>
+                <text x="115" y="132" text-anchor="middle" font-size="9" fill="#EF4444">KO blocked</text>
+
+                <!-- Other blocked -->
+                <rect x="10" y="180" width="80" height="36" rx="6" fill="rgba(139,149,165,0.1)" stroke="#4B5563" stroke-width="1"/>
+                <text x="50" y="198" text-anchor="middle" font-size="10" fill="#8B95A5">Amino acids</text>
+                <text x="50" y="210" text-anchor="middle" font-size="10" fill="#8B95A5">Organic acids</text>
+                <line x1="90" y1="198" x2="155" y2="198" stroke="#4B5563" stroke-width="1"/>
+                <text x="115" y="190" text-anchor="middle" font-size="16" fill="#4B5563">⊘</text>
+                <text x="115" y="212" text-anchor="middle" font-size="9" fill="#4B5563">Lab-safe</text>
+
+                <!-- Legend -->
+                <rect x="10" y="240" width="380" height="32" rx="6" fill="#111827" stroke="#1F2937"/>
+                <circle cx="30" cy="257" r="5" fill="#00D4AA" opacity="0.5"/>
+                <text x="42" y="261" font-size="10" fill="#8B95A5">Xylose pathway active</text>
+                <line x1="170" y1="257" x2="180" y2="257" stroke="#EF4444" stroke-width="2"/>
+                <text x="150" y="253" font-size="14" fill="#EF4444">⊘</text>
+                <text x="185" y="261" font-size="10" fill="#8B95A5">Glucose/reagent metabolites blocked</text>
+              </svg>
+            </div>
+
+            <div class="card" style="padding:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#F5A623; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">IP Coverage</p>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Composition of matter — specific genotype</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Six-gene KO screening method</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Δcre-1 + Δwc-1 six-gene chassis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Valve -->
+      <div id="panel-valve" class="tab-panel" role="tabpanel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; padding-bottom:3rem;">
+          <div>
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00D4AA; margin:0 0 0.75rem;">Layer 2 — Valve</p>
+            <h2 class="headline-sm">Optogenetic Septal Pore Valve</h2>
+            <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
+              Blue light (450 nm) triggers pore closure. <strong style="color:#F8F9FA;">100× dynamic range</strong> between dark and lit states. Fail-safe open logic — no light means no plug, flow is unrestricted.
+            </p>
+
+            <div class="card" style="margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">Component A — HEX1-LOV2 Plug</p>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0 0 0.5rem; line-height:1.6;">
+                <strong style="color:#F8F9FA;">HEX1 (NCU06106)</strong> — <em>N. crassa</em> Woronin body protein. Naturally evolved to plug septal pores under stress. Native pore-rim affinity; 176aa core; freely cytoplasmic.
+              </p>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
+                <strong style="color:#F8F9FA;">LOV2+Jα (from WC-1, NCU02356)</strong> — endogenous to <em>N. crassa</em>. No foreign chromophore required — FMN is ubiquitous. pLDDT = <span style="color:#00D4AA;">91</span> (ColabFold).
+              </p>
+            </div>
+
+            <div class="card" style="margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#2B7FFF; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">Component B — SPA1-ePDZ Anchor</p>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0 0 0.5rem; line-height:1.6;">
+                <strong style="color:#F8F9FA;">SPA-1 (NCU00627, aa 1–150)</strong> — localizes constitutively to the septal pore rim as a Type I ring. Always anchored; no light dependence in localization.
+              </p>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
+                <strong style="color:#F8F9FA;">ePDZ (engineered Erbin PDZ)</strong> — 100× affinity switch: ~130 nM in lit state (Jα exposed) vs. &gt;10 µM dark (Jα docked, epitope hidden). pLDDT = <span style="color:#00D4AA;">88</span>.
+              </p>
+            </div>
+
+            <div style="background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:8px; padding:1rem;">
+              <p style="font-size:0.8125rem; color:#F8F9FA; margin:0; line-height:1.6;">
+                <strong>Thermal reversion:</strong> LOV2 dark recovery (seconds–minutes) automatically reopens the valve without any input signal. True fail-safe open behavior.
+              </p>
+            </div>
+          </div>
+
+          <!-- Valve animation -->
+          <div>
+            <div class="valve-demo">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0;">Valve Mechanism</p>
+                <button id="valve-toggle" class="btn-secondary" style="padding:0.375rem 0.875rem; font-size:0.8125rem;">
+                  Toggle State
+                </button>
+              </div>
+
+              <div id="valve-display" style="position:relative; height:220px; overflow:hidden; border-radius:8px; background:#0B0F19; border:1px solid #1F2937;">
+                <canvas id="valve-canvas" style="position:absolute; inset:0; width:100%; height:100%;"></canvas>
+
+                <div style="position:absolute; top:1rem; left:50%; transform:translateX(-50%); text-align:center;">
+                  <span id="valve-state-label" style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:4px; background:rgba(0,212,170,0.15); color:#00D4AA;">
+                    DARK — Flow OPEN
+                  </span>
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.25rem;">
+                <div style="text-align:center; padding:0.75rem; background:#0B0F19; border-radius:8px; border:1px solid #1F2937;">
+                  <p style="font-size:1.25rem; font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">100×</p>
+                  <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">Dynamic range</p>
+                </div>
+                <div style="text-align:center; padding:0.75rem; background:#0B0F19; border-radius:8px; border:1px solid #1F2937;">
+                  <p style="font-size:1.25rem; font-weight:700; color:#2B7FFF; margin:0; font-family:var(--font-display);">450 nm</p>
+                  <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">Activation wavelength</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#F5A623; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">IP Coverage</p>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">LOV2-Jα-HEX1 + SPA1-ePDZ constructs</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Method of optogenetic flow control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Scaffold -->
+      <div id="panel-scaffold" class="tab-panel" role="tabpanel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; padding-bottom:3rem;">
+          <div>
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#F5A623; margin:0 0 0.75rem;">Layer 3 — Scaffold</p>
+            <h2 class="headline-sm">H-Tree Scaffold &amp; Integration</h2>
+            <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
+              The H-tree topology is the critical design choice. Every one of the <strong style="color:#F8F9FA;">16 terminal reagent ports</strong> is exactly the same path length from the central chow reservoir — ensuring simultaneous, pressure-balanced reagent delivery.
+            </p>
+
+            <div class="card" style="margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#F5A623; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1rem;">Channel Sizing Rationale</p>
+              <div style="overflow-x:auto;">
+                <table class="data-table" style="min-width:340px;">
+                  <thead>
+                    <tr>
+                      <th>Level</th>
+                      <th>Width</th>
+                      <th>Hyphae</th>
+                      <th>Function</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Root–L1</td>
+                      <td class="highlight">20 µm</td>
+                      <td>4–8</td>
+                      <td>Main trunk — flow redundancy</td>
+                    </tr>
+                    <tr>
+                      <td>L2–L3</td>
+                      <td class="highlight">13–17 µm</td>
+                      <td>2–3</td>
+                      <td>Valve control zone</td>
+                    </tr>
+                    <tr>
+                      <td>Depth (all)</td>
+                      <td>15 µm</td>
+                      <td>—</td>
+                      <td>Matches hyphal diameter</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
+              <div class="card" style="padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Chip Size</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">10×10 mm</p>
+              </div>
+              <div class="card" style="padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Ports</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">16 reagent + 1 chow</p>
+              </div>
+              <div class="card" style="padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Levels</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">4 branching levels</p>
+              </div>
+              <div class="card" style="padding:1rem;">
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Compatibility</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">SU-8 / PDMS / Print</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <p style="font-size:0.75rem; font-weight:600; color:#F5A623; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">IP Coverage</p>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-med badge">MED</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Fungal-specific channel geometry (13–20 µm)</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-high badge">HIGH</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Living microfluidic device (integrated system)</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <span class="badge-med badge">MED</span>
+                  <span style="font-size:0.875rem; color:#F8F9FA;">Co-culture integration methods</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chip explorer -->
+          <div>
+            <div class="chip-explorer" style="height:420px;" id="chip-explorer">
+              <canvas id="chip-canvas" style="position:absolute; inset:0; width:100%; height:100%; cursor:grab;"></canvas>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0;">H-Tree scaffold — 10×10 mm, 4 levels, 16 ports · channel width 13–20 µm</p>
+              <button id="chip-reset" style="font-size:0.75rem; color:#00D4AA; background:none; border:none; cursor:pointer; padding:0.25rem 0.5rem;">Reset view</button>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.375rem;">
+                <div style="width:16px; height:3px; background:#00D4AA; border-radius:2px;"></div>
+                <span style="font-size:0.75rem; color:#8B95A5;">Main channel (20 µm)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.375rem;">
+                <div style="width:16px; height:2px; background:#2B7FFF; border-radius:2px;"></div>
+                <span style="font-size:0.75rem; color:#8B95A5;">Branch channels (13–17 µm)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.375rem;">
+                <div style="width:8px; height:8px; border-radius:50%; background:#F5A623;"></div>
+                <span style="font-size:0.75rem; color:#8B95A5;">Reagent port</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.375rem;">
+                <div style="width:10px; height:10px; border-radius:50%; background:#00D4AA;"></div>
+                <span style="font-size:0.75rem; color:#8B95A5;">Chow reservoir</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IP Summary -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-label">Intellectual Property</span>
+        <h2 class="headline">Five patent families — provisional ready to file</h2>
+      </div>
+      <div class="reveal" style="overflow-x:auto; border-radius:12px; border:1px solid #1F2937;">
+        <table class="data-table" style="min-width:580px;">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Family</th>
+              <th>Description</th>
+              <th>Strength</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:#00D4AA; font-weight:600;">01</td>
+              <td style="color:#F8F9FA; font-weight:500;">Metabolically orthogonal chassis</td>
+              <td>Specific genotype + six-gene KO screening method</td>
+              <td><span class="badge-high badge">HIGH</span></td>
+            </tr>
+            <tr>
+              <td style="color:#00D4AA; font-weight:600;">02</td>
+              <td style="color:#F8F9FA; font-weight:500;">Optogenetic septal pore valve</td>
+              <td>LOV2-Jα-HEX1 + SPA1-ePDZ constructs &amp; flow control method</td>
+              <td><span class="badge-high badge">HIGH</span></td>
+            </tr>
+            <tr>
+              <td style="color:#00D4AA; font-weight:600;">03</td>
+              <td style="color:#F8F9FA; font-weight:500;">Living microfluidic device</td>
+              <td>Chip + organism + scaffold as integrated system</td>
+              <td><span class="badge-high badge">HIGH</span></td>
+            </tr>
+            <tr>
+              <td style="color:#00D4AA; font-weight:600;">04</td>
+              <td style="color:#F8F9FA; font-weight:500;">H-tree scaffold, fungal dimensions</td>
+              <td>Fungal-specific channel geometry (13–20 µm) novel over PDMS art</td>
+              <td><span class="badge-med badge">MED</span></td>
+            </tr>
+            <tr>
+              <td style="color:#00D4AA; font-weight:600;">05</td>
+              <td style="color:#F8F9FA; font-weight:500;">Six-gene chassis (Δcre-1 + Δwc-1)</td>
+              <td>Requirement for 450 nm optogenetic activation in orthogonal host</td>
+              <td><span class="badge-high badge">HIGH</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+// ─── Tab switching ────────────────────────────────────────────────
+document.querySelectorAll<HTMLButtonElement>('.tab-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    const panel = document.getElementById('panel-' + btn.dataset.tab);
+    panel?.classList.add('active');
+  });
+});
+
+// ─── Valve Canvas Animation ──────────────────────────────────────
+(function () {
+  const canvas = document.getElementById('valve-canvas') as HTMLCanvasElement;
+  const btn = document.getElementById('valve-toggle') as HTMLButtonElement;
+  const label = document.getElementById('valve-state-label')!;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  let lit = false;
+  let lightPulse = 0; // 0-1
+  let plugPos = 0;    // 0 = away (open), 1 = at pore (closed)
+  let animFrame = 0;
+
+  function draw() {
+    const W = canvas.offsetWidth;
+    const H = canvas.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const cx = W / 2;
+    const poreY = H / 2 + 10;
+    const poreW = 60;
+    const poreH = 24;
+
+    // --- Cell wall (horizontal bar) ---
+    ctx.fillStyle = '#1F2937';
+    ctx.fillRect(0, poreY - poreH / 2 - 8, W, 8);
+    ctx.fillRect(0, poreY + poreH / 2, W, 8);
+
+    // Pore opening
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(cx - poreW / 2, poreY - poreH / 2, poreW, poreH);
+
+    // Pore rim (SPA1-ePDZ anchor)
+    ctx.strokeStyle = '#2B7FFF';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.rect(cx - poreW / 2, poreY - poreH / 2, poreW, poreH);
+    ctx.stroke();
+    ctx.fillStyle = '#2B7FFF';
+    ctx.font = 'bold 8px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('SPA1-ePDZ anchor', cx, poreY + poreH / 2 + 18);
+
+    // Flow arrows (left side = upper cytoplasm, right = lower)
+    const flowAlpha = 1 - plugPos;
+    if (flowAlpha > 0.05) {
+      ctx.globalAlpha = flowAlpha;
+      ctx.strokeStyle = '#00D4AA';
+      ctx.lineWidth = 2;
+      // Downward flow through pore
+      for (let i = -1; i <= 1; i++) {
+        const fx = cx + i * 16;
+        const animate = ((Date.now() / 400 + i * 0.3) % 1);
+        const ay = (poreY - poreH / 2 - 20) + animate * (poreH + 40);
+        ctx.beginPath();
+        ctx.moveTo(fx, ay - 8);
+        ctx.lineTo(fx, ay + 8);
+        ctx.moveTo(fx - 4, ay + 2);
+        ctx.lineTo(fx, ay + 8);
+        ctx.lineTo(fx + 4, ay + 2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    // HEX1-LOV2 plug position
+    const plugX = cx + (1 - plugPos) * (W / 2 - cx - 40);
+    const plugY = poreY - 30 - plugPos * 30;
+    const r = 18;
+
+    // Glow when lit
+    if (lightPulse > 0) {
+      const glow = ctx.createRadialGradient(plugX, plugY, 2, plugX, plugY, 40);
+      glow.addColorStop(0, `rgba(43,127,255,${lightPulse * 0.5})`);
+      glow.addColorStop(1, 'rgba(43,127,255,0)');
+      ctx.beginPath();
+      ctx.arc(plugX, plugY, 40, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+    }
+
+    ctx.beginPath();
+    ctx.arc(plugX, plugY, r, 0, Math.PI * 2);
+    const plugGrad = ctx.createRadialGradient(plugX - 5, plugY - 5, 2, plugX, plugY, r);
+    plugGrad.addColorStop(0, lit ? '#4B91FF' : '#00D4AA');
+    plugGrad.addColorStop(1, lit ? '#1a50CC' : '#007A5E');
+    ctx.fillStyle = plugGrad;
+    ctx.fill();
+    ctx.strokeStyle = lit ? '#2B7FFF' : '#00D4AA';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Label on plug
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 7px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('HEX1', plugX, plugY - 2);
+    ctx.fillText('LOV2', plugX, plugY + 8);
+
+    // Light ray
+    if (lightPulse > 0.1) {
+      ctx.globalAlpha = lightPulse * 0.6;
+      ctx.strokeStyle = '#2B7FFF';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      ctx.moveTo(20, 20);
+      ctx.lineTo(plugX - r, plugY - r);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 450nm label
+      ctx.globalAlpha = lightPulse;
+      ctx.fillStyle = '#2B7FFF';
+      ctx.font = '9px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('450 nm', 22, 18);
+      ctx.globalAlpha = 1;
+    }
+
+    // Status text (top right)
+    ctx.fillStyle = flowAlpha > 0.5 ? '#00D4AA' : '#EF4444';
+    ctx.font = 'bold 9px Inter, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(flowAlpha > 0.5 ? 'Flow OPEN' : 'Flow BLOCKED', W - 8, 18);
+  }
+
+  let animId: number;
+  function animate() {
+    // Smooth transitions
+    const target = lit ? 1 : 0;
+    plugPos += (target - plugPos) * 0.08;
+    lightPulse += (target - lightPulse) * 0.1;
+    draw();
+    animId = requestAnimationFrame(animate);
+  }
+  animate();
+
+  btn.addEventListener('click', () => {
+    lit = !lit;
+    if (lit) {
+      label.textContent = 'LIT (450 nm) — Flow BLOCKED';
+      label.style.background = 'rgba(239,68,68,0.15)';
+      label.style.color = '#EF4444';
+    } else {
+      label.textContent = 'DARK — Flow OPEN';
+      label.style.background = 'rgba(0,212,170,0.15)';
+      label.style.color = '#00D4AA';
+    }
+  });
+
+  // Auto-play when tab is visible
+  const tabValve = document.querySelector('[data-tab="valve"]')!;
+  tabValve.addEventListener('click', () => {
+    let cycle = 0;
+    const autoId = setInterval(() => {
+      lit = !lit;
+      label.textContent = lit ? 'LIT (450 nm) — Flow BLOCKED' : 'DARK — Flow OPEN';
+      label.style.background = lit ? 'rgba(239,68,68,0.15)' : 'rgba(0,212,170,0.15)';
+      label.style.color = lit ? '#EF4444' : '#00D4AA';
+      cycle++;
+      if (cycle >= 4) clearInterval(autoId);
+    }, 2000);
+  });
+})();
+
+// ─── H-Tree Chip Canvas Explorer ────────────────────────────────
+(function () {
+  const canvas = document.getElementById('chip-canvas') as HTMLCanvasElement;
+  const resetBtn = document.getElementById('chip-reset')!;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  // H-tree coordinates (in a 10000×10000 logical space)
+  const S = 10000; // SVG space size
+  // Center
+  const CX = S / 2, CY = S / 2;
+
+  // H-tree: start horizontal, L0 half = 2500
+  // Level 0: (2500,5000)-(7500,5000), L=5000
+  // Level 1: vert at each end, L=5000/sqrt(2)≈3536, half=1768
+  // Level 2: horiz at each end, half=1768/sqrt(2)≈1250
+  // Level 3: vert at each end, half=1250/sqrt(2)≈884
+
+  const HL0 = 2500;
+  const HL1 = Math.round(HL0 / Math.sqrt(2)); // 1768
+  const HL2 = Math.round(HL1 / Math.sqrt(2)); // 1250
+  const HL3 = Math.round(HL2 / Math.sqrt(2)); // 884
+
+  // All channel segments: [x1,y1,x2,y2,level]
+  type Seg = [number, number, number, number, number];
+  const segs: Seg[] = [];
+
+  // Level 0 horizontal trunk
+  segs.push([CX - HL0, CY, CX + HL0, CY, 0]);
+
+  // Level 1 vertical at each L0 end
+  const L1ends = [CX - HL0, CX + HL0];
+  L1ends.forEach(lx => {
+    segs.push([lx, CY - HL1, lx, CY + HL1, 1]);
+  });
+
+  // Level 2 horizontal at each L1 end
+  const L2parents = L1ends.flatMap(lx => [{ x: lx, y: CY - HL1 }, { x: lx, y: CY + HL1 }]);
+  L2parents.forEach(p => {
+    segs.push([p.x - HL2, p.y, p.x + HL2, p.y, 2]);
+  });
+
+  // Level 3 vertical at each L2 end — these end at the 16 port locations
+  const L3parents = L2parents.flatMap(p => [{ x: p.x - HL2, y: p.y }, { x: p.x + HL2, y: p.y }]);
+  const portLocations: {x: number, y: number}[] = [];
+  L3parents.forEach(p => {
+    segs.push([p.x, p.y - HL3, p.x, p.y + HL3, 3]);
+    portLocations.push({ x: p.x, y: p.y - HL3 });
+    portLocations.push({ x: p.x, y: p.y + HL3 });
+  });
+
+  // Pan/zoom state
+  let ox = 0, oy = 0, scale = 1;
+  let dragging = false;
+  let lastX = 0, lastY = 0;
+
+  function toCanvas(sx: number, sy: number) {
+    const W = canvas.offsetWidth, H = canvas.offsetHeight;
+    const baseScale = Math.min(W, H) / S * 0.8;
+    const s = baseScale * scale;
+    return {
+      x: W / 2 + (sx - CX) * s + ox,
+      y: H / 2 + (sy - CY) * s + oy,
+    };
+  }
+
+  function draw() {
+    const W = canvas.offsetWidth, H = canvas.offsetHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = '#0B0F19';
+    ctx.fillRect(0, 0, W, H);
+
+    // Draw segments
+    segs.forEach(([x1, y1, x2, y2, lv]) => {
+      const p1 = toCanvas(x1, y1), p2 = toCanvas(x2, y2);
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.strokeStyle = lv <= 1 ? '#00D4AA' : '#2B7FFF';
+      ctx.lineWidth = lv === 0 ? 3 : lv === 1 ? 2.5 : lv === 2 ? 2 : 1.5;
+      ctx.stroke();
+    });
+
+    // Ports
+    portLocations.forEach((p) => {
+      const c = toCanvas(p.x, p.y);
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, Math.max(3, 6 * scale), 0, Math.PI * 2);
+      ctx.fillStyle = '#F5A623';
+      ctx.fill();
+      ctx.strokeStyle = '#0B0F19';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Central reservoir
+    const center = toCanvas(CX, CY - 1000);
+    ctx.beginPath();
+    ctx.arc(center.x, center.y, Math.max(6, 12 * scale), 0, Math.PI * 2);
+    const rg = ctx.createRadialGradient(center.x, center.y, 2, center.x, center.y, 14 * scale);
+    rg.addColorStop(0, '#00D4AA');
+    rg.addColorStop(1, 'rgba(0,212,170,0.3)');
+    ctx.fillStyle = rg;
+    ctx.fill();
+    ctx.strokeStyle = '#00D4AA';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Label
+    ctx.fillStyle = '#8B95A5';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Chow reservoir', center.x, center.y - 16 * scale - 4);
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    dragging = true;
+    lastX = e.clientX; lastY = e.clientY;
+    canvas.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    ox += e.clientX - lastX;
+    oy += e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    draw();
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    canvas.style.cursor = 'grab';
+  });
+  canvas.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    scale = Math.max(0.3, Math.min(8, scale * delta));
+    draw();
+  }, { passive: false });
+
+  // Touch support
+  let lastTouchDist = 0;
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      dragging = true;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+      lastTouchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    }
+  });
+  canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    if (e.touches.length === 1 && dragging) {
+      ox += e.touches[0].clientX - lastX;
+      oy += e.touches[0].clientY - lastY;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      draw();
+    } else if (e.touches.length === 2) {
+      const d = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      scale *= d / lastTouchDist;
+      scale = Math.max(0.3, Math.min(8, scale));
+      lastTouchDist = d;
+      draw();
+    }
+  }, { passive: false });
+  canvas.addEventListener('touchend', () => { dragging = false; });
+
+  resetBtn.addEventListener('click', () => {
+    ox = 0; oy = 0; scale = 1;
+    draw();
+  });
+
+  const obs = new IntersectionObserver((e) => {
+    if (e[0].isIntersecting) { draw(); obs.disconnect(); }
+  }, { threshold: 0.1 });
+  obs.observe(canvas);
+  window.addEventListener('resize', draw);
+})();
+</script>

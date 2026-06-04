@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sivoro.bio/sitemap-index.xml
+
+# LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /

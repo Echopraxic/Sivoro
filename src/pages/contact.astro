@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Sivoro Microfluidics"
+  description="Get in touch with Sivoro Microfluidics. Questions, media, partnerships, careers, or investor inquiries."
+>
+  <section style="padding-top:calc(64px + 5rem); padding-bottom:6rem; background:#0B0F19; min-height:80vh;">
+    <div class="container" style="max-width:960px; margin:0 auto;">
+      <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+        <span class="section-label">Contact</span>
+        <h1 class="headline" style="font-size:clamp(2rem,4vw,3.25rem);">Get in Touch</h1>
+        <p class="subhead" style="max-width:480px; margin:0 auto;">Questions about Sivoro? We'd love to hear from you. We respond to all inquiries within 2 business days.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="reveal">
+        <!-- Contact cards -->
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          {[
+            { icon: '💼', label: 'Investor Inquiries', email: 'investors@sivoro.bio', desc: 'Pitch deck, financials, cap table, term sheets.' },
+            { icon: '🤝', label: 'Partnership &amp; Research', email: 'partners@sivoro.bio', desc: 'Beta testing, co-development, SBIR collaboration.' },
+            { icon: '📰', label: 'Media &amp; Press', email: 'press@sivoro.bio', desc: 'Press kit, interviews, speaking requests.' },
+            { icon: '💼', label: 'Careers', email: 'jobs@sivoro.bio', desc: 'Fungal geneticist, microfluidics engineer, biochemist.' },
+            { icon: '✉️', label: 'General', email: 'hello@sivoro.bio', desc: 'Everything else.' },
+          ].map(c => (
+            <a href={`mailto:${c.email}`} class="card" style="text-decoration:none; display:flex; gap:1rem; align-items:flex-start; cursor:pointer;">
+              <span style="font-size:1.5rem; flex-shrink:0; line-height:1.3;">{c.icon}</span>
+              <div>
+                <p style="font-size:0.9375rem; font-weight:600; color:#F8F9FA; margin:0 0 0.25rem;" set:html={c.label}></p>
+                <p style="font-size:0.8125rem; color:#00D4AA; margin:0 0 0.25rem;">{c.email}</p>
+                <p style="font-size:0.8125rem; color:#8B95A5; margin:0;">{c.desc}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Info -->
+        <div>
+          <div class="card" style="padding:2rem; margin-bottom:1.5rem;">
+            <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 1.25rem;">Company Info</p>
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+              <div>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Location</p>
+                <p style="color:#F8F9FA; font-size:0.9375rem; margin:0;">Ann Arbor, Michigan</p>
+              </div>
+              <div>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Founded</p>
+                <p style="color:#F8F9FA; font-size:0.9375rem; margin:0;">2026</p>
+              </div>
+              <div>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Stage</p>
+                <p style="color:#F8F9FA; font-size:0.9375rem; margin:0;">Pre-seed · Raising $1.5M</p>
+              </div>
+              <div>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">General contact</p>
+                <a href="mailto:hello@sivoro.bio" style="color:#00D4AA; font-size:0.9375rem; text-decoration:none;">hello@sivoro.bio</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:1.5rem; background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:10px;">
+            <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">Seed Round</p>
+            <p style="color:#F8F9FA; font-size:1rem; font-weight:600; margin:0 0 0.25rem;">$1.5M · Pre-money $6M</p>
+            <p style="color:#8B95A5; font-size:0.875rem; margin:0 0 1rem;">18 months to prototype + first sale</p>
+            <a href="/investors" class="btn-primary" style="padding:0.5rem 1rem; font-size:0.875rem;">View investor materials →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

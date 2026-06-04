@@ -1,0 +1,130 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  keywords?: string;
+}
+
+const {
+  title = 'Sivoro Microfluidics | Living Microfluidic Chips',
+  description = 'The first self-assembling, optogenetically controlled microfluidic platform. No cleanroom required.',
+  ogImage = '/og-image.svg',
+  keywords = 'microfluidics, synthetic biology, Neurospora crassa, optogenetics, lab-on-chip, organ-on-chip, fungal microfluidics',
+} = Astro.props;
+
+// Canonical URL — computed per page automatically
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+// Absolute OG image URL
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <!-- Canonical URL (prevents duplicate-content penalties) -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph — og:url is now per-page correct -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Sivoro Microfluidics" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sivoromicro" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts — preconnect reduces render-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured data — Organization (global) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sivoro Microfluidics",
+        "url": "https://sivoro.bio",
+        "logo": "https://sivoro.bio/favicon.svg",
+        "description": "Developer of the first self-assembling, optogenetically controlled microfluidic platform using engineered Neurospora crassa fungi.",
+        "foundingDate": "2026",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Ann Arbor, Michigan"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Michael McKenna",
+          "jobTitle": "Founder & CEO"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@sivoro.bio",
+          "contactType": "general"
+        },
+        "sameAs": [],
+        "knowsAbout": [
+          "Microfluidics",
+          "Synthetic Biology",
+          "Neurospora crassa",
+          "Optogenetics",
+          "Lab-on-a-chip",
+          "Organ-on-chip"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Global scroll-reveal observer -->
+    <script>
+      (() => {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in-view');
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document
+          .querySelectorAll('.reveal, .reveal-stagger')
+          .forEach((el) => obs.observe(el));
+      })();
+    </script>
+  </body>
+</html>
