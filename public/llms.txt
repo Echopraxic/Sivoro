@@ -8,7 +8,7 @@ Sivoro is an early-stage biotech company building living microfluidic chips. Cha
 
 - **Technology:** Metabolically orthogonal *N. crassa* chassis (xylose-only) + LOV2-Jα-HEX1 optogenetic valve + H-tree scaffold (10×10 mm, 16 ports, 4 levels)
 - **Stage:** Pre-seed. Computational phases 100% complete (metabolic modeling, KO screen, structural prediction, scaffold design). Wet-lab validation is the next milestone.
-- **IP:** 5 patent families, provisional draft complete, ready to file within 30 days of legal engagement
+- **IP:** Provisional patent filed (2026) — 5 claim families covering the orthogonal chassis, optogenetic valve constructs, and H-tree device
 - **Competitive advantages:** No cleanroom, <$1 per device (post-strain), self-clearing channels via hyphal turnover, built-in optogenetic valves vs external pneumatics
 - **Round:** Seed · $1.5M · Pre-money $6M · Post-money $7.5M · 18-month runway
 - **Goal:** Prototype + first customer (academic beta site, LOI from 3 labs by M12)
@@ -17,10 +17,10 @@ Sivoro is an early-stage biotech company building living microfluidic chips. Cha
 ## Pages
 
 - [Homepage](https://sivoro.bio/): Full narrative overview — problem, solution, comparison table, three IP layers, validation progress, competitive quadrant, traction numbers, investor CTA
-- [Technology](https://sivoro.bio/technology): Deep-dive into the three IP layers — metabolic orthogonality (iJDZ836, 9,976 KO pairs), optogenetic septal pore valve mechanism (LOV2-Jα-HEX1 + SPA1-ePDZ), H-tree chip scaffold (13–20 µm channels, 16 ports)
-- [Science](https://sivoro.bio/science): Computational validation data — iJDZ836 genome-scale model stats, KO screen methodology and phenotype tiers, ColabFold pLDDT scores (91 & 88), 12-month wet-lab milestone plan with success metrics
+- [Technology](https://sivoro.bio/technology): Deep-dive into the three IP layers — metabolic orthogonality (iJDZ836, 10,440 KO pairs, 16 chip-eligible strains), optogenetic septal pore valve mechanism (LOV2-Jα-HEX1 from Avena sativa phototropin 1 + SPA1-ePDZ), H-tree chip scaffold (13–20 µm channels, 16 ports)
+- [Science](https://sivoro.bio/science): Computational validation data — iJDZ836 genome-scale model stats, Composite Orthogonality Score (COS = √(CPS × RBS)), 16 chip-eligible strains from 10,440 combinations, Aspergillus nidulans cross-species validation (iMA871), ColabFold pLDDT scores (91/88/76), 12-month wet-lab milestone plan with success metrics
 - [Products](https://sivoro.bio/products): Four-product roadmap — Sivoro Start (academic kit, $2,500/kit, 70% GM), Sivoro Organ (pharma platform, $50k–150k, 60% GM), Sivoro License (IP royalties, 5–10%, 90% GM), Sivoro Dx (diagnostic, per-assay, 2029+)
-- [Team](https://sivoro.bio/team): Founder Michael McKenna (computational biology, metabolic modeling, microfluidics — 7,600+ lines Python, 9,976 KO pairs screened, 2 validated optogenetic constructs). Open roles: Fungal Geneticist (part-time/academic), Microfluidics Engineer (first hire post-seed), Protein Biochemist (consultant)
+- [Team](https://sivoro.bio/team): Founder Michael McKenna (computational biology, metabolic modeling, microfluidics — 7,600+ lines Python, 10,440 KO pairs screened, 2 validated optogenetic constructs). Open roles: Fungal Geneticist (part-time/academic), Microfluidics Engineer (first hire post-seed), Protein Biochemist (consultant)
 - [Investors](https://sivoro.bio/investors): Full investment details — $1.5M seed at $6M pre-money, use-of-funds breakdown ($400k wet-lab, $300k strain construction, $250k founder ops, $200k protein validation, $150k chip prototyping, $100k IP legal, $100k contingency), 12-month milestones, key risk mitigations, pitch deck download
 - [Partners](https://sivoro.bio/partners): Collaboration models — Beta Testing Program (free kits to academic labs), Co-Development (custom strains), Joint Publications (shared authorship), SBIR Partnership (grant collaboration). Contact: partners@sivoro.bio
 - [Contact](https://sivoro.bio/contact): Direct contact by inquiry type — investors@sivoro.bio, partners@sivoro.bio, press@sivoro.bio, jobs@sivoro.bio, hello@sivoro.bio
@@ -28,19 +28,22 @@ Sivoro is an early-stage biotech company building living microfluidic chips. Cha
 ## Technology Summary
 
 ### Layer 1 — Chassis
-Metabolically orthogonal *N. crassa* engineered to metabolize xylose only. Six-gene knockout validated *in silico* from 9,976 combinations screened using iJDZ836 genome-scale metabolic model. Recommended Tier 1 chassis achieves ~30% WT xylose growth (doubling time ~2.7 hr). IP: composition of matter + screening method (HIGH patentability).
+Metabolically orthogonal *N. crassa* engineered to metabolize xylose only. Knockout pairs were screened *in silico* across 10,440 combinations (145-gene pool) using the iJDZ836 genome-scale metabolic model, ranked by the Composite Orthogonality Score (COS = √(CPS × RBS), where CPS = chow/xylose preservation and RBS = reagent block score). 16 chip-eligible strains clear the chip-integration threshold (RBS ≥ 0.868); an exemplary pair (a central-glycolysis enzyme KO + a respiratory-chain subunit KO) gives CPS 0.185 / RBS 0.868 / ~18.5% residual xylose growth. An inherent biological tradeoff means no pair achieves both CPS > 0.5 and RBS > 0.8 simultaneously. The full chassis adds four knockouts for carbon-catabolite-repression removal, aerial-hyphae suppression (×2), and blue-light-photoreceptor removal (optogenetic isolation). IP: composition of matter + screening method (HIGH patentability).
+
+### Layer 1b — Cross-Species Validation
+The orthogonality strategy generalizes beyond *N. crassa*. Re-run *in silico* on *Aspergillus nidulans* (iMA871 model, 871 genes, ~170M years of evolutionary divergence), an orthologous double knockout (sugar transporter + central-carbon aldolase) achieves xylose growth 0.198 h⁻¹ (27% WT), glucose 0.031 h⁻¹ (4.2% WT, 95.8% blocking), CPS 0.270 / RBS 0.958 / COS 0.508 — superior reagent blocking to the N. crassa equivalent (COS 0.499), clearing the chip-integration threshold. Demonstrates the platform is not a one-organism trick.
 
 ### Layer 2 — Valve
-Optogenetic septal pore valve using LOV2-Jα-HEX1 fusion (Component A, 36.9 kDa, pLDDT 91) + SPA1-ePDZ anchor (Component B, 39.4 kDa, pLDDT 88). Blue light (450 nm) triggers 100× dynamic range pore closure. Fail-safe open — thermal reversion automatically reopens without input. IP: constructs + method of flow control (HIGH).
+Optogenetic septal pore valve using a LOV2-Jα-HEX1 fusion (Component A / CompA_v3, 334 aa, 36.9 kDa, pLDDT 91). Domain order N→C: LOV2 photosensory domain (from *Avena sativa* phototropin 1) → Jα helix (pLDDT 76) → (GGGGS)×3 linker → HEX1 Woronin-body core (150 aa, pLDDT 88). Paired with a SPA1-ePDZ anchor (Component B / CompB, 358 aa, 39.4 kDa, pLDDT 88) localized to the septal pore rim. Blue light (450 nm) exposes the Jα helix, which binds the ePDZ anchor and tethers HEX1 to occlude the pore (~50% blockade at R_h ≥ 28 nm via 8 anchors). Fail-safe open — thermal reversion (<5 min) automatically reopens without input. IP: constructs + method of flow control (HIGH).
 
 ### Layer 3 — Scaffold
 H-tree topology (10×10 mm, 4 levels, 16 reagent ports + central chow reservoir). Equal path length from all ports to center ensures simultaneous, pressure-balanced reagent delivery. Main channels 20 µm (4–8 hyphae), branch channels 13–17 µm (2–3 hyphae, valve control zone). Compatible with SU-8/PDMS or direct printing. IP: fungal-specific channel geometry (MED) + integrated living device (HIGH).
 
 ## Traction
 
-- 9,976 knockout pairs screened in silico
+- 10,440 knockout pairs screened in silico (145-gene pool); 16 chip-eligible strains (RBS ≥ 0.868)
+- Cross-species validation in Aspergillus nidulans (COS 0.508, ~170M years divergence)
 - 2 validated optogenetic constructs (sequence + structure)
-- pLDDT 91 (LOV2 domain), pLDDT 88 (HEX1 domain) — ColabFold, high confidence
-- 5 patent families, provisional draft complete
+- pLDDT 91 (LOV2 domain), 88 (HEX1 domain), 76 (Jα helix) — ColabFold
 - 7,600+ lines of Python modeling code
-- Provisional patent draft complete, ready to file within 30 days of legal engagement
+- Provisional patent filed (2026) — 5 claim families

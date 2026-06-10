@@ -40,13 +40,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00D4AA; margin:0 0 0.75rem;">Layer 1 — Chassis</p>
             <h2 class="headline-sm">Metabolically Orthogonal <em>N. crassa</em></h2>
             <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
-              The iJDZ836 genome-scale metabolic model describes a metabolically capable organism. On xylose (chow medium), wild-type <em>N. crassa</em> achieves 0.854 hr⁻¹ growth rate — confirming xylose as a preferred carbon source and valid chassis feed.
+              The iJDZ836 genome-scale metabolic model (836 genes, ~1,200 reactions) describes a metabolically capable organism. Flux-balance analysis confirms xylose as a preferred carbon source and the valid chassis feed for the chow reservoir.
             </p>
             <p style="color:#8B95A5; line-height:1.7; margin-bottom:1.5rem; font-size:0.9375rem;">
               The carbon source screen found 24 of 78 tested sources support growth. Gene essentiality analysis flagged ~130 of 836 genes (~15.5%) as essential — the hard boundary for knockout targeting.
             </p>
             <p style="color:#8B95A5; line-height:1.7; margin-bottom:2rem; font-size:0.9375rem;">
-              We screened <strong style="color:#F8F9FA;">9,976 viable double-knockout pairs</strong> from ~142 non-essential transporter and central carbon genes. The recommended chassis (Tier 1) achieves 30% of WT xylose growth — a doubling time of ~2.7 hr, sufficient for robust chip colonization.
+              We screened <strong style="color:#F8F9FA;">10,440 double-knockout pairs</strong> from a 145-gene pool of transporter and central carbon genes, ranking each by Composite Orthogonality Score. Sixteen strains clear the chip-integration threshold (RBS ≥ 0.868) — the recommended chassis candidates, with enough residual xylose growth for robust chip colonization.
             </p>
 
             <h3 style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0 0 1rem;">Phenotype Tiers</h3>
@@ -86,11 +86,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="card" style="flex:1; min-width:180px; padding:1rem;">
                 <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">KO Pairs Screened</p>
-                <p style="font-size:1rem; font-weight:600; color:#00D4AA; margin:0;">9,976</p>
+                <p style="font-size:1rem; font-weight:600; color:#00D4AA; margin:0;">10,440</p>
               </div>
               <div class="card" style="flex:1; min-width:180px; padding:1rem;">
-                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Growth Rate (xylose)</p>
-                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">0.854 hr⁻¹</p>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0 0 0.25rem; text-transform:uppercase; letter-spacing:0.08em;">Chip-Eligible Strains</p>
+                <p style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0;">16</p>
               </div>
             </div>
           </div>
@@ -187,22 +187,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
 
             <div class="card" style="margin-bottom:1.25rem;">
-              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">Component A — HEX1-LOV2 Plug</p>
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">Component A — LOV2-HEX1 Plug</p>
               <p style="font-size:0.8125rem; color:#8B95A5; margin:0 0 0.5rem; line-height:1.6;">
-                <strong style="color:#F8F9FA;">HEX1 (NCU06106)</strong> — <em>N. crassa</em> Woronin body protein. Naturally evolved to plug septal pores under stress. Native pore-rim affinity; 176aa core; freely cytoplasmic.
+                <strong style="color:#F8F9FA;">LOV2 + Jα</strong> — blue-light photosensor from <em>Avena sativa</em> phototropin 1. Uses ubiquitous FMN as its chromophore — no foreign cofactor required. N-terminal placement keeps the HEX1 self-assembly contacts free. pLDDT = <span style="color:#00D4AA;">91</span> (ColabFold).
               </p>
               <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
-                <strong style="color:#F8F9FA;">LOV2+Jα (from WC-1, NCU02356)</strong> — endogenous to <em>N. crassa</em>. No foreign chromophore required — FMN is ubiquitous. pLDDT = <span style="color:#00D4AA;">91</span> (ColabFold).
+                <strong style="color:#F8F9FA;">HEX1 core (150 aa)</strong> — <em>N. crassa</em> Woronin-body protein, naturally evolved to plug septal pores under stress. Fused C-terminal via a (GGGGS)×3 linker; freely cytoplasmic until light-tethered. pLDDT = <span style="color:#00D4AA;">88</span>.
               </p>
             </div>
 
             <div class="card" style="margin-bottom:1.25rem;">
               <p style="font-size:0.75rem; font-weight:600; color:#2B7FFF; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 0.75rem;">Component B — SPA1-ePDZ Anchor</p>
               <p style="font-size:0.8125rem; color:#8B95A5; margin:0 0 0.5rem; line-height:1.6;">
-                <strong style="color:#F8F9FA;">SPA-1 (NCU00627, aa 1–150)</strong> — localizes constitutively to the septal pore rim as a Type I ring. Always anchored; no light dependence in localization.
+                <strong style="color:#F8F9FA;">SPA1 (aa 1–146)</strong> — <em>N. crassa</em> septal-pore-rim localizing domain. Constitutively anchored at the pore rim; no light dependence in localization.
               </p>
               <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
-                <strong style="color:#F8F9FA;">ePDZ (engineered Erbin PDZ)</strong> — 100× affinity switch: ~130 nM in lit state (Jα exposed) vs. &gt;10 µM dark (Jα docked, epitope hidden). pLDDT = <span style="color:#00D4AA;">88</span>.
+                <strong style="color:#F8F9FA;">ePDZ (engineered PDZ, iLID system)</strong> — light-gated affinity switch: ~130 nM in the lit state (Jα exposed) vs. &gt;10 µM dark (Jα docked, epitope hidden). pLDDT = <span style="color:#00D4AA;">88</span>.
               </p>
             </div>
 

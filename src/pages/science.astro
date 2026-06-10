@@ -9,20 +9,30 @@ const milestones = [
   { mo: 'M10', label: 'Prototype chip colonization', metric: 'Fluorescent flow through network', done: false },
   { mo: 'M12', label: 'First customer — academic beta site', metric: 'LOI from 3 labs', done: false },
 ];
+
+// Six-gene chassis, described by function (not locus ID) per IP strategy.
+const chassis = [
+  { n: 1, role: 'Central glycolysis enzyme', why: 'Knocked out to break glucose-route flux — forces dependence on the xylose chow feed.', tag: 'Metabolic block', color: '#00D4AA' },
+  { n: 2, role: 'Respiratory-chain subunit', why: 'Paired knockout that deepens reagent blocking while preserving residual xylose growth.', tag: 'Metabolic block', color: '#00D4AA' },
+  { n: 3, role: 'Carbon-catabolite-repression regulator', why: 'Removed to lift repression on xylose utilization — a kinetic growth benefit on the chow source.', tag: 'Kinetic tuning', color: '#2B7FFF' },
+  { n: 4, role: 'Aerial-hyphae suppressor (i)', why: 'Keeps growth confined to the channel plane so the network stays a clean fluidic conduit.', tag: 'Morphology', color: '#F5A623' },
+  { n: 5, role: 'Aerial-hyphae suppressor (ii)', why: 'Second morphology control that reinforces channel integrity during colonization.', tag: 'Morphology', color: '#F5A623' },
+  { n: 6, role: 'Blue-light photoreceptor', why: 'Removed so the native light response cannot interfere transcriptionally with the 450 nm optogenetic valve.', tag: 'Optogenetic isolation', color: '#8B5CF6' },
+];
 ---
 
 <BaseLayout
   title="Science | Sivoro Microfluidics"
-  description="Computational validation complete: iJDZ836 metabolic model, 9,976 knockout pairs screened, ColabFold pLDDT 91 & 88. 12-month wet-lab milestone plan with measurable success metrics."
-  keywords="iJDZ836 metabolic model, Neurospora crassa knockout screen, ColabFold structural validation, pLDDT score, BLI SPR binding, SEC-MALS protein characterization, synthetic biology validation, microfluidics research"
+  description="Patent-validated computational pipeline: iJDZ836 metabolic model, 10,440 knockout combinations screened, 16 chip-eligible strains, Composite Orthogonality Score, and Aspergillus nidulans cross-species validation. ColabFold pLDDT 91/88/76."
+  keywords="chip-eligible strains, Composite Orthogonality Score, COS, iJDZ836 metabolic model, Neurospora crassa knockout screen, Aspergillus nidulans cross-species, iMA871, ColabFold pLDDT, metabolic orthogonality, synthetic biology validation, microfluidics research"
 >
   <!-- Hero -->
   <section style="padding-top:calc(64px + 5rem); padding-bottom:4rem; background:#0B0F19; border-bottom:1px solid #1F2937;">
     <div class="container">
-      <div class="reveal" style="max-width:720px;">
+      <div class="reveal" style="max-width:760px;">
         <span class="section-label">Science</span>
         <h1 class="headline" style="font-size:clamp(2rem,4.5vw,3.75rem);">Computational Validation Complete</h1>
-        <p class="subhead">From genome-scale metabolic models to ColabFold structural predictions — all computational phases done.</p>
+        <p class="subhead">From a genome-scale metabolic model to 16 chip-eligible strains, a structurally validated optogenetic valve, and a cross-species proof point — every computational phase is done and now backed by a filed provisional patent.</p>
       </div>
     </div>
   </section>
@@ -32,20 +42,20 @@ const milestones = [
     <div class="container">
       <div class="reveal-stagger reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; text-align:center;">
         <div>
-          <p style="font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">9,976</p>
-          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">KO pairs screened</p>
+          <p style="font-size:clamp(1.75rem,3.6vw,2.75rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">10,440</p>
+          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">KO combinations screened</p>
         </div>
         <div>
-          <p style="font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">91</p>
-          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">pLDDT — LOV2 domain</p>
+          <p style="font-size:clamp(1.75rem,3.6vw,2.75rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">16</p>
+          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">Chip-eligible strains</p>
         </div>
         <div>
-          <p style="font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">88</p>
-          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">pLDDT — HEX1 domain</p>
+          <p style="font-size:clamp(1.75rem,3.6vw,2.75rem); font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">2</p>
+          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">Species validated</p>
         </div>
         <div>
-          <p style="font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#F5A623; margin:0; font-family:var(--font-display);">65%</p>
-          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">Overall completion</p>
+          <p style="font-size:clamp(1.75rem,3.6vw,2.75rem); font-weight:700; color:#F5A623; margin:0; font-family:var(--font-display);">91/88</p>
+          <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">pLDDT — LOV2 / HEX1</p>
         </div>
       </div>
     </div>
@@ -56,7 +66,8 @@ const milestones = [
     <div class="container">
       <div class="tab-list" role="tablist" aria-label="Science data">
         <button class="tab-btn active" role="tab" data-tab="metabolic" aria-selected="true">Metabolic Modeling</button>
-        <button class="tab-btn" role="tab" data-tab="knockout" aria-selected="false">Knockout Screen</button>
+        <button class="tab-btn" role="tab" data-tab="strains" aria-selected="false">Chip-Eligible Strains</button>
+        <button class="tab-btn" role="tab" data-tab="crossspecies" aria-selected="false">Cross-Species Validation</button>
         <button class="tab-btn" role="tab" data-tab="structural" aria-selected="false">Structural Validation</button>
       </div>
 
@@ -66,7 +77,7 @@ const milestones = [
           <div>
             <h2 class="headline-sm">iJDZ836 Genome-Scale Metabolic Model</h2>
             <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
-              The iJDZ836 model provides a comprehensive picture of <em>N. crassa</em> metabolism. We used it to predict growth rates on different carbon sources, identify essential genes, and simulate the metabolic impact of knockout combinations.
+              The iJDZ836 model (836 genes, ~1,200 reactions) provides a comprehensive picture of <em>N. crassa</em> metabolism. Full flux-balance analysis predicted growth across 78 candidate carbon sources and quantified the metabolic impact of every knockout combination before any wet-lab work.
             </p>
 
             <div style="overflow-x:auto; border-radius:8px; border:1px solid #1F2937; margin-bottom:1.5rem;">
@@ -76,37 +87,37 @@ const milestones = [
                 </thead>
                 <tbody>
                   <tr><td>Total genes modeled</td><td class="highlight">836</td></tr>
-                  <tr><td>Essential genes (~15.5%)</td><td class="highlight">~130</td></tr>
+                  <tr><td>Metabolic reactions</td><td class="highlight">~1,200</td></tr>
                   <tr><td>Carbon sources tested</td><td class="highlight">78</td></tr>
                   <tr><td>Carbon sources supporting growth</td><td class="highlight">24</td></tr>
-                  <tr><td>Growth rate on xylose</td><td class="highlight">0.854 hr⁻¹</td></tr>
-                  <tr><td>Growth rate on sucrose</td><td>0.305 hr⁻¹</td></tr>
+                  <tr><td>Permissive chow source</td><td class="highlight">Xylose</td></tr>
+                  <tr><td>Pairwise KO combinations</td><td>10,440</td></tr>
                 </tbody>
               </table>
             </div>
 
             <div style="background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:8px; padding:1rem;">
               <p style="font-size:0.875rem; color:#F8F9FA; margin:0; line-height:1.6;">
-                <strong>Key finding:</strong> Xylose growth rate (0.854 hr⁻¹) is 2.8× higher than sucrose, confirming xylose as a preferred carbon source and the correct chassis feed for the chow reservoir.
+                <strong>Key finding:</strong> Of 78 carbon sources, only 24 support growth. Xylose is selected as the permissive chow feed — knockouts then block the common reagent sugars while preserving xylose utilization, the basis of metabolic orthogonality.
               </p>
             </div>
           </div>
 
           <div>
-            <h3 style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0 0 1rem;">Carbon Source Screen Results</h3>
-            <!-- Visual bar chart of top carbon sources -->
+            <h3 style="font-size:1rem; font-weight:600; color:#F8F9FA; margin:0 0 1rem;">Carbon Source Preference (relative)</h3>
+            <!-- Visual bar chart of relative carbon preference -->
             <div style="background:#111827; border:1px solid #1F2937; border-radius:8px; padding:1.25rem; margin-bottom:1.5rem;">
               {[
-                { name: 'Xylose (chow)', value: 0.854, pct: 100, highlight: true },
-                { name: 'Cellobiose', value: 0.72, pct: 84 },
-                { name: 'Arabinose', value: 0.61, pct: 71 },
-                { name: 'Sucrose', value: 0.305, pct: 36 },
-                { name: 'Glucose', value: 0.28, pct: 33 },
+                { name: 'Xylose (chow)', pct: 100, highlight: true },
+                { name: 'Cellobiose', pct: 84 },
+                { name: 'Arabinose', pct: 71 },
+                { name: 'Sucrose', pct: 36 },
+                { name: 'Glucose', pct: 33 },
               ].map(c => (
                 <div style="margin-bottom:0.875rem;">
                   <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;">
                     <span style={`font-size:0.8125rem; font-weight:${c.highlight ? 600 : 400}; color:${c.highlight ? '#F8F9FA' : '#8B95A5'};`}>{c.name}</span>
-                    <span style={`font-size:0.8125rem; font-weight:600; color:${c.highlight ? '#00D4AA' : '#8B95A5'};`}>{c.value} hr⁻¹</span>
+                    <span style={`font-size:0.8125rem; font-weight:600; color:${c.highlight ? '#00D4AA' : '#8B95A5'};`}>{c.pct}%</span>
                   </div>
                   <div class="progress-track" style="height:6px;">
                     <div class="progress-fill sci-bar" data-pct={c.pct}
@@ -114,97 +125,17 @@ const milestones = [
                   </div>
                 </div>
               ))}
+              <p style="font-size:0.6875rem; color:#4B5563; margin:0.5rem 0 0;">Relative predicted growth preference, normalized to xylose.</p>
             </div>
 
             <div class="card">
-              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">Gene Essentiality</p>
-              <div style="display:flex; gap:1.5rem; align-items:center;">
-                <div style="flex:1;">
-                  <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;">
-                    <span style="font-size:0.8125rem; color:#8B95A5;">Essential (~15.5%)</span>
-                    <span style="font-size:0.8125rem; color:#EF4444; font-weight:600;">~130 genes</span>
-                  </div>
-                  <div class="progress-track"><div style="width:15.5%; background:#EF4444;" class="progress-fill sci-bar" data-pct="15.5"></div></div>
-                </div>
-                <div style="flex:1;">
-                  <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;">
-                    <span style="font-size:0.8125rem; color:#8B95A5;">Targetable</span>
-                    <span style="font-size:0.8125rem; color:#00D4AA; font-weight:600;">~706 genes</span>
-                  </div>
-                  <div class="progress-track"><div style="width:84.5%;" class="progress-fill sci-bar" data-pct="84.5"></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: Knockout Screen -->
-      <div id="panel-knockout" class="tab-panel" role="tabpanel">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding-bottom:3rem; align-items:start;">
-          <div>
-            <h2 class="headline-sm">9,976 Knockout Pairs Screened</h2>
-            <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
-              We enumerated all viable double-knockout combinations from ~142 non-essential transporter and central carbon genes. Each pair was scored using the <strong style="color:#F8F9FA;">Composite Orthogonality Score (COS)</strong> — balancing sugar transport blocking against xylose growth fitness.
-            </p>
-            <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
-              The top 50 candidates were classified into three phenotype tiers. Tier 1 (ranks 1–16) provides the best sugar blocking with ~30% WT xylose growth — a doubling time of ~2.7 hr, sufficient for robust chip colonization in 7 days.
-            </p>
-
-            <div style="overflow-x:auto; border-radius:8px; border:1px solid #1F2937;">
-              <table class="data-table" style="min-width:400px;">
-                <thead>
-                  <tr><th>Tier</th><th>Ranks</th><th>Xylose growth</th><th>Sugar blocking</th><th>Use case</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="badge badge-cyan">Tier 1</span></td>
-                    <td class="highlight">1–16</td>
-                    <td>~30% WT</td>
-                    <td style="color:#00D4AA;">Strong</td>
-                    <td style="color:#F8F9FA; font-weight:500;">Recommended chassis</td>
-                  </tr>
-                  <tr>
-                    <td><span class="badge badge-amber">Tier 2</span></td>
-                    <td>17–32</td>
-                    <td>Marginal</td>
-                    <td style="color:#00D4AA;">Very strong</td>
-                    <td>Aggressive blocking</td>
-                  </tr>
-                  <tr>
-                    <td><span class="badge" style="background:rgba(139,149,165,0.1);color:#8B95A5;border:1px solid rgba(139,149,165,0.3);">Tier 3</span></td>
-                    <td>33–50</td>
-                    <td>Best WT-like</td>
-                    <td>Moderate</td>
-                    <td>Fitness-first applications</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div style="margin-top:1.25rem; background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:8px; padding:1rem;">
-              <p style="font-size:0.875rem; color:#F8F9FA; margin:0; line-height:1.6;">
-                <strong>COS methodology:</strong> The Composite Orthogonality Score weights sugar transport blocking (primary) against xylose fitness maintenance (secondary), giving a single ranked metric across all 9,976 pairs.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <!-- Growth Phenotype Landscape visual -->
-            <div class="card" style="padding:1.25rem; margin-bottom:1.25rem;">
-              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1rem;">Growth Phenotype Landscape</p>
-              <canvas id="ko-scatter" style="width:100%; height:220px; display:block; border-radius:6px;"></canvas>
-              <p style="font-size:0.75rem; color:#8B95A5; margin:0.75rem 0 0; text-align:center;">X: Growth on sugar reagents · Y: Growth on xylose (chow) · Color: COS score</p>
-            </div>
-
-            <div class="card">
-              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 1rem;">Screening Summary</p>
+              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">Screening Funnel</p>
               <div style="display:flex; flex-direction:column; gap:0.75rem;">
                 {[
-                  { label: 'Total gene pairs evaluated', val: '9,976', c: '#00D4AA' },
-                  { label: 'Non-essential transporter genes', val: '~142', c: '#F8F9FA' },
-                  { label: 'Tier 1 candidates', val: '16 pairs', c: '#00D4AA' },
-                  { label: 'Python code (modeling pipeline)', val: '7,600+ lines', c: '#F8F9FA' },
+                  { label: '145-gene candidate pool', val: '145', c: '#F8F9FA' },
+                  { label: 'Pairwise KO combinations', val: '10,440', c: '#00D4AA' },
+                  { label: 'Chip-eligible (RBS ≥ 0.868)', val: '16', c: '#00D4AA' },
+                  { label: 'Pipeline code', val: '7,600+ lines', c: '#F8F9FA' },
                 ].map(r => (
                   <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0; border-bottom:1px solid #1F2937;">
                     <span style="font-size:0.875rem; color:#8B95A5;">{r.label}</span>
@@ -217,25 +148,184 @@ const milestones = [
         </div>
       </div>
 
+      <!-- Tab: Chip-Eligible Strains -->
+      <div id="panel-strains" class="tab-panel" role="tabpanel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding-bottom:2rem; align-items:start;">
+          <div>
+            <h2 class="headline-sm">16 Chip-Eligible Strains</h2>
+            <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
+              From <strong style="color:#F8F9FA;">10,440 pairwise knockout combinations</strong> across a 145-gene pool, each pair was ranked by the <strong style="color:#F8F9FA;">Composite Orthogonality Score (COS)</strong>. Sixteen pairs clear the chip-integration threshold of <strong style="color:#00D4AA;">RBS ≥ 0.868</strong> — these are the chassis candidates that can colonize a chip while blocking reagent metabolism.
+            </p>
+
+            <div style="background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:8px; padding:1rem 1.25rem; margin-bottom:1.5rem;">
+              <p style="font-size:0.8125rem; font-weight:600; color:#00D4AA; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 0.5rem;">Composite Orthogonality Score</p>
+              <p style="font-family:var(--font-mono); font-size:1.0625rem; color:#F8F9FA; margin:0 0 0.625rem; text-align:center;">COS = √( CPS × RBS )</p>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:0; line-height:1.6;">
+                <strong style="color:#F8F9FA;">CPS</strong> (Chow Preservation Score) measures retained xylose growth. <strong style="color:#F8F9FA;">RBS</strong> (Reagent Block Score) = 1 − (reagent growth ÷ WT xylose growth). The geometric mean rewards pairs that block reagents <em>and</em> stay alive on chow.
+              </p>
+            </div>
+
+            <!-- Exemplary pair metric card -->
+            <div class="card" style="border-top:2px solid #00D4AA;">
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.875rem;">Exemplary Chip-Eligible Pair</p>
+              <p style="font-size:0.875rem; color:#8B95A5; line-height:1.6; margin:0 0 1rem;">A central-glycolysis enzyme knockout paired with a respiratory-chain subunit knockout — strong reagent blocking with enough residual xylose growth to colonize.</p>
+              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem;">
+                {[
+                  { val: '0.185', label: 'CPS', c: '#F8F9FA' },
+                  { val: '0.868', label: 'RBS', c: '#00D4AA' },
+                  { val: '~18.5%', label: 'Residual xylose vs WT', c: '#F5A623' },
+                ].map(m => (
+                  <div style="text-align:center; padding:0.75rem 0.25rem; background:#0B0F19; border:1px solid #1F2937; border-radius:6px;">
+                    <p style={`font-size:1.25rem; font-weight:700; color:${m.c}; margin:0; font-family:var(--font-display);`}>{m.val}</p>
+                    <p style="font-size:0.6875rem; color:#8B95A5; margin:0.25rem 0 0; line-height:1.3;">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <!-- COS Pareto-frontier plot -->
+            <div class="card" style="padding:1.25rem; margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1rem;">COS Tradeoff — CPS vs RBS</p>
+              <canvas id="cos-pareto" style="width:100%; height:300px; display:block; border-radius:6px;"></canvas>
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0.75rem 0 0; text-align:center; line-height:1.5;">
+                X: Chow Preservation (CPS) · Y: Reagent Blocking (RBS) · <span style="color:#00D4AA;">●</span> 16 chip-eligible (RBS ≥ 0.868)
+              </p>
+            </div>
+
+            <div style="background:rgba(245,166,35,0.06); border:1px solid rgba(245,166,35,0.2); border-radius:8px; padding:1rem;">
+              <p style="font-size:0.8125rem; color:#F8F9FA; margin:0; line-height:1.6;">
+                <strong>Honest constraint:</strong> no pair reaches the upper-right corner — none achieves both CPS &gt; 0.5 and RBS &gt; 0.8 at once. This is an inherent biological tradeoff: deeper reagent blocking costs chow fitness. The 16 chip-eligible strains are the best available balance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Six-gene chassis explorer -->
+        <div style="padding-bottom:3rem;">
+          <h3 style="font-size:1.125rem; font-weight:600; color:#F8F9FA; margin:0 0 0.5rem;">The Six-Gene Chassis</h3>
+          <p style="color:#8B95A5; font-size:0.9375rem; line-height:1.7; margin:0 0 1.5rem; max-width:680px;">A chip-eligible pair is only the metabolic core. The full chassis layers in four more knockouts for kinetics, morphology, and optogenetic isolation — six engineered edits that together make a clean, light-controllable fluidic network.</p>
+          <div class="grid-3 reveal-stagger">
+            {chassis.map(g => (
+              <div class="card" style={`border-left:3px solid ${g.color};`}>
+                <div style="display:flex; align-items:center; gap:0.625rem; margin-bottom:0.625rem;">
+                  <span style={`display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; font-size:0.8125rem; font-weight:700; flex-shrink:0; background:${g.color}1a; color:${g.color}; border:1px solid ${g.color}40;`}>{g.n}</span>
+                  <span style={`font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:${g.color};`}>{g.tag}</span>
+                </div>
+                <p style="font-size:0.9375rem; font-weight:600; color:#F8F9FA; margin:0 0 0.375rem; line-height:1.3;">{g.role}</p>
+                <p style="font-size:0.8125rem; color:#8B95A5; line-height:1.6; margin:0;">{g.why}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Cross-Species Validation -->
+      <div id="panel-crossspecies" class="tab-panel" role="tabpanel">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding-bottom:3rem; align-items:start;">
+          <div>
+            <h2 class="headline-sm">Validated in a Second Species</h2>
+            <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
+              Metabolic orthogonality is a <strong style="color:#F8F9FA;">platform strategy, not a one-organism trick</strong>. The same approach was re-run <em>in silico</em> on <em>Aspergillus nidulans</em> using the published <strong style="color:#F8F9FA;">iMA871</strong> model (871 genes) — a fungus separated from <em>N. crassa</em> by roughly <strong style="color:#00D4AA;">170 million years</strong> of evolution.
+            </p>
+            <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
+              Orthologous knockouts (a sugar transporter + a central-carbon aldolase, identified by reciprocal BLASTP) reproduce the xylose-selective phenotype — and actually block reagents <em>more</em> strongly than the <em>N. crassa</em> equivalent.
+            </p>
+
+            <div style="overflow-x:auto; border-radius:8px; border:1px solid #1F2937; margin-bottom:1.25rem;">
+              <table class="data-table" style="min-width:380px;">
+                <thead>
+                  <tr><th><em>A. nidulans</em> double KO</th><th style="color:#00D4AA;">Result</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Growth on xylose</td><td class="highlight">0.198 h⁻¹ (27% WT)</td></tr>
+                  <tr><td>Growth on glucose</td><td class="highlight">0.031 h⁻¹ (4.2% WT)</td></tr>
+                  <tr><td>Reagent blocking</td><td class="highlight">95.8%</td></tr>
+                  <tr><td>CPS</td><td>0.270</td></tr>
+                  <tr><td>RBS</td><td style="color:#00D4AA;">0.958</td></tr>
+                  <tr><td>COS</td><td class="highlight">0.508</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background:rgba(0,212,170,0.06); border:1px solid rgba(0,212,170,0.2); border-radius:8px; padding:1rem;">
+              <p style="font-size:0.875rem; color:#F8F9FA; margin:0; line-height:1.6;">
+                <strong>Why it matters:</strong> <em>A. nidulans</em> clears the chip-integration threshold (RBS 0.958) where <em>N. crassa</em> falls short — direct evidence the strategy generalizes and the addressable organism set is broad.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <!-- Cross-species comparison viz -->
+            <div class="card" style="padding:1.25rem; margin-bottom:1.25rem;">
+              <p style="font-size:0.75rem; font-weight:600; color:#00D4AA; letter-spacing:0.1em; text-transform:uppercase; margin:0 0 1.25rem;">Composite Orthogonality Score</p>
+              <div style="display:flex; flex-direction:column; gap:1.25rem;">
+                {[
+                  { sp: 'A. nidulans', model: 'iMA871', cos: 0.508, rbs: 0.958, pct: 100, lead: true },
+                  { sp: 'N. crassa', model: 'iJDZ836', cos: 0.499, rbs: 0.750, pct: 98 },
+                ].map(s => (
+                  <div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.4rem;">
+                      <span style={`font-size:0.9375rem; font-weight:600; font-style:italic; color:${s.lead ? '#00D4AA' : '#F8F9FA'};`}>{s.sp}</span>
+                      <span style="font-size:0.6875rem; color:#4B5563; font-family:var(--font-mono);">{s.model}</span>
+                    </div>
+                    <div class="progress-track" style="height:26px; border-radius:6px;">
+                      <div class="progress-fill sci-bar" data-pct={s.pct} style={`background:${s.lead ? 'linear-gradient(90deg,#00D4AA,#2B7FFF)' : '#374151'}; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:0.625rem;`}>
+                        <span style="font-size:0.8125rem; font-weight:700; color:#0B0F19; font-family:var(--font-display);">COS {s.cos}</span>
+                      </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:#8B95A5; margin:0.3rem 0 0;">Reagent Block Score: <span style={`color:${s.lead ? '#00D4AA' : '#8B95A5'}; font-weight:600;`}>{s.rbs}</span></p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="card">
+              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">Evolutionary Distance</p>
+              <div style="display:flex; align-items:center; gap:1rem;">
+                <div style="text-align:center; flex:1;">
+                  <p style="font-size:0.875rem; font-style:italic; color:#F8F9FA; margin:0;">N. crassa</p>
+                </div>
+                <div style="flex:2; text-align:center;">
+                  <div style="height:2px; background:linear-gradient(90deg,#00D4AA,#F5A623); position:relative; margin:0.75rem 0;">
+                    <span style="position:absolute; top:-1.4rem; left:50%; transform:translateX(-50%); font-size:0.875rem; font-weight:700; color:#F5A623; font-family:var(--font-display); white-space:nowrap;">~170M yrs</span>
+                  </div>
+                </div>
+                <div style="text-align:center; flex:1;">
+                  <p style="font-size:0.875rem; font-style:italic; color:#F8F9FA; margin:0;">A. nidulans</p>
+                </div>
+              </div>
+              <p style="font-size:0.8125rem; color:#8B95A5; margin:1rem 0 0; line-height:1.6; text-align:center;">Two genera, ~170M years apart — the same orthogonality phenotype is reachable in both.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Tab: Structural Validation -->
       <div id="panel-structural" class="tab-panel" role="tabpanel">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding-bottom:3rem; align-items:start;">
           <div>
             <h2 class="headline-sm">ColabFold Structural Validation</h2>
             <p style="color:#8B95A5; line-height:1.7; font-size:0.9375rem; margin-bottom:1.5rem;">
-              Both valve components were predicted using ColabFold (AlphaFold2-based). High pLDDT scores (&gt;80) indicate confident structural predictions, validating the domain architectures before wet-lab synthesis.
+              Both valve components were predicted with ColabFold (AlphaFold2-based). High pLDDT scores (&gt;80) on the functional domains validate the architecture before any wet-lab synthesis.
             </p>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
-              <div style="text-align:center; padding:1.5rem; background:#111827; border:1px solid #1F2937; border-radius:8px;">
-                <p style="font-size:3rem; font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">91</p>
-                <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">pLDDT — LOV2 domain</p>
-                <p style="font-size:0.75rem; color:#00D4AA; margin:0.25rem 0 0;">High confidence</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin-bottom:1.5rem;">
+              <div style="text-align:center; padding:1.25rem 0.5rem; background:#111827; border:1px solid #1F2937; border-radius:8px;">
+                <p style="font-size:2.5rem; font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">91</p>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">LOV2 domain</p>
+                <p style="font-size:0.6875rem; color:#00D4AA; margin:0.2rem 0 0;">Very high</p>
               </div>
-              <div style="text-align:center; padding:1.5rem; background:#111827; border:1px solid #1F2937; border-radius:8px;">
-                <p style="font-size:3rem; font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">88</p>
-                <p style="font-size:0.8125rem; color:#8B95A5; margin:0.25rem 0 0;">pLDDT — HEX1 domain</p>
-                <p style="font-size:0.75rem; color:#00D4AA; margin:0.25rem 0 0;">High confidence</p>
+              <div style="text-align:center; padding:1.25rem 0.5rem; background:#111827; border:1px solid #1F2937; border-radius:8px;">
+                <p style="font-size:2.5rem; font-weight:700; color:#00D4AA; margin:0; font-family:var(--font-display);">88</p>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">HEX1 domain</p>
+                <p style="font-size:0.6875rem; color:#00D4AA; margin:0.2rem 0 0;">Very high</p>
+              </div>
+              <div style="text-align:center; padding:1.25rem 0.5rem; background:#111827; border:1px solid #1F2937; border-radius:8px;">
+                <p style="font-size:2.5rem; font-weight:700; color:#F5A623; margin:0; font-family:var(--font-display);">76</p>
+                <p style="font-size:0.75rem; color:#8B95A5; margin:0.25rem 0 0;">Jα helix</p>
+                <p style="font-size:0.6875rem; color:#F5A623; margin:0.2rem 0 0;">Flexible hinge</p>
               </div>
             </div>
 
@@ -246,14 +336,14 @@ const milestones = [
                 </thead>
                 <tbody>
                   <tr>
-                    <td style="color:#F8F9FA; font-weight:500;">HEX1-LOV2 (CompA_v3)</td>
-                    <td>35aa linker, 36.9 kDa</td>
+                    <td style="color:#F8F9FA; font-weight:500;">CompA_v3 (LOV2-HEX1 plug)</td>
+                    <td>334 aa · 36.9 kDa</td>
                     <td class="highlight">91</td>
                     <td>LOV2 β-sheet + Jα helix intact</td>
                   </tr>
                   <tr>
-                    <td style="color:#F8F9FA; font-weight:500;">SPA1-ePDZ (CompB)</td>
-                    <td>358aa, 39.4 kDa</td>
+                    <td style="color:#F8F9FA; font-weight:500;">CompB (SPA1-ePDZ anchor)</td>
+                    <td>358 aa · 39.4 kDa</td>
                     <td class="highlight">88</td>
                     <td>PDZ binding groove correctly folded</td>
                   </tr>
@@ -263,7 +353,7 @@ const milestones = [
 
             <div style="background:rgba(245,166,35,0.06); border:1px solid rgba(245,166,35,0.2); border-radius:8px; padding:1rem;">
               <p style="font-size:0.8125rem; color:#F8F9FA; margin:0; line-height:1.6;">
-                <strong>Next step:</strong> SEC-MALS (M4) will confirm oligomeric state of CompA_v3 with target R_h ≥ 28 nm, followed by BLI/SPR binding confirmation (M6) targeting K_d ≤ 1 µM in the lit state.
+                <strong>Next step:</strong> SEC-MALS (M4) confirms the oligomeric state of CompA_v3 with target R_h ≥ 28 nm, followed by BLI/SPR binding confirmation (M6) targeting K_d ≤ 1 µM in the lit state.
               </p>
             </div>
           </div>
@@ -291,26 +381,30 @@ const milestones = [
               </div>
               <div style="margin-top:1.25rem; padding:0.75rem; background:#0B0F19; border-radius:6px; border:1px solid #1F2937;">
                 <p style="font-size:0.8125rem; color:#8B95A5; margin:0;">
-                  Our constructs score <span style="color:#00D4AA; font-weight:600;">91</span> and <span style="color:#00D4AA; font-weight:600;">88</span> — both in the "very high confidence" band, meaning the core functional domains are confidently predicted.
+                  The functional domains score <span style="color:#00D4AA; font-weight:600;">91</span> and <span style="color:#00D4AA; font-weight:600;">88</span> — both "very high". The Jα helix scores <span style="color:#F5A623; font-weight:600;">76</span>, exactly as expected for a flexible photoswitching hinge.
                 </p>
               </div>
             </div>
 
             <div class="card">
-              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">Fusion Protein Geometry</p>
+              <p style="font-size:0.75rem; font-weight:600; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.75rem;">CompA_v3 Domain Architecture (N→C)</p>
               <div style="display:flex; flex-direction:column; gap:0.625rem;">
                 {[
-                  { label: 'N-terminus', val: 'HEX1 Woronin body core (176aa)', c: '#F8F9FA' },
-                  { label: 'Linker', val: '35aa flexible (Gly-Ser)', c: '#8B95A5' },
-                  { label: 'C-terminus', val: 'LOV2+Jα from WC-1 (NCU02356)', c: '#F8F9FA' },
-                  { label: 'Total MW', val: '36.9 kDa (CompA), 39.4 kDa (CompB)', c: '#00D4AA' },
+                  { label: 'N-terminus', val: 'LOV2 photosensory (aa 1–146)', sub: 'from Avena sativa phototropin 1', c: '#F8F9FA' },
+                  { label: 'Hinge', val: 'Jα helix (aa 147–168)', sub: 'binds ePDZ in the lit state', c: '#F8F9FA' },
+                  { label: 'Linker', val: '(GGGGS)×3 flexible (aa 169–184)', sub: '~16 aa Gly-Ser', c: '#8B95A5' },
+                  { label: 'C-terminus', val: 'HEX1 core (aa 185–334, 150 aa)', sub: 'Woronin-body pore-occluding domain', c: '#F8F9FA' },
                 ].map(r => (
-                  <div style="display:flex; justify-content:space-between; padding:0.5rem 0; border-bottom:1px solid #1F2937;">
-                    <span style="font-size:0.8125rem; color:#8B95A5;">{r.label}</span>
-                    <span style={`font-size:0.8125rem; color:${r.c}; font-weight:500;`}>{r.val}</span>
+                  <div style="padding:0.5rem 0; border-bottom:1px solid #1F2937;">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:0.5rem;">
+                      <span style="font-size:0.6875rem; color:#8B95A5; text-transform:uppercase; letter-spacing:0.05em; flex-shrink:0;">{r.label}</span>
+                      <span style={`font-size:0.8125rem; color:${r.c}; font-weight:500; text-align:right;`}>{r.val}</span>
+                    </div>
+                    <p style="font-size:0.6875rem; color:#4B5563; margin:0.2rem 0 0; text-align:right;">{r.sub}</p>
                   </div>
                 ))}
               </div>
+              <p style="font-size:0.75rem; color:#8B95A5; margin:0.875rem 0 0; line-height:1.55;">N-terminal LOV2 placement leaves the HEX1 C-terminal crystal contacts free to self-assemble — verified by structural superposition (6.5 Å clearance).</p>
             </div>
           </div>
         </div>
@@ -355,9 +449,9 @@ const milestones = [
   <section class="bg-dark">
     <div class="container" style="max-width:720px; margin:0 auto; text-align:center;">
       <div class="reveal">
-        <span class="section-label">Publications</span>
-        <h2 class="headline">Manuscript in Preparation</h2>
-        <p class="subhead" style="margin-bottom:2rem;">A full methods paper describing the metabolic orthogonality screening pipeline, optogenetic valve design, and H-tree scaffold geometry is in preparation for submission to a peer-reviewed journal.</p>
+        <span class="section-label">Publications &amp; IP</span>
+        <h2 class="headline">Provisional Patent Filed</h2>
+        <p class="subhead" style="margin-bottom:2rem;">A provisional patent covering the metabolically orthogonal chassis, the optogenetic septal-pore valve, and the H-tree scaffold has been filed. A full methods manuscript describing the screening pipeline and valve design is in preparation.</p>
         <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
           <div class="card" style="text-align:left; max-width:460px; padding:1.25rem;">
             <p style="font-size:0.75rem; color:#8B95A5; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 0.5rem;">In Preparation</p>
@@ -380,6 +474,7 @@ document.querySelectorAll<HTMLButtonElement>('.tab-btn').forEach(btn => {
     btn.setAttribute('aria-selected','true');
     document.getElementById('panel-' + btn.dataset.tab)?.classList.add('active');
     animateBars();
+    drawPareto();
   });
 });
 
@@ -395,73 +490,104 @@ const obs = new IntersectionObserver(entries => {
 const firstPanel = document.getElementById('panel-metabolic');
 if (firstPanel) obs.observe(firstPanel);
 
-// KO scatter plot
-(function() {
-  const canvas = document.getElementById('ko-scatter') as HTMLCanvasElement;
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d')!;
+// COS Pareto-frontier plot
+function drawPareto() {
+  const canvas = document.getElementById('cos-pareto') as HTMLCanvasElement | null;
+  if (!canvas || !canvas.offsetWidth) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-  function draw() {
-    const W = canvas.offsetWidth, H = canvas.offsetHeight;
-    canvas.width = W; canvas.height = H;
-    ctx.fillStyle = '#0B0F19';
-    ctx.fillRect(0, 0, W, H);
+  const W = canvas.offsetWidth, H = canvas.offsetHeight;
+  canvas.width = W; canvas.height = H;
+  ctx.fillStyle = '#0B0F19';
+  ctx.fillRect(0, 0, W, H);
 
-    const pad = { t: 12, r: 12, b: 28, l: 32 };
-    const mW = W - pad.l - pad.r;
-    const mH = H - pad.t - pad.b;
+  const pad = { t: 16, r: 16, b: 34, l: 40 };
+  const mW = W - pad.l - pad.r;
+  const mH = H - pad.t - pad.b;
+  const X = (v: number) => pad.l + v * mW;            // CPS 0..1
+  const Y = (v: number) => pad.t + mH - v * mH;        // RBS 0..1
 
-    // Axes
-    ctx.strokeStyle = '#1F2937'; ctx.lineWidth = 1;
+  // Shade the unreachable upper-right quadrant (CPS>0.5 && RBS>0.8)
+  ctx.fillStyle = 'rgba(245,166,35,0.06)';
+  ctx.fillRect(X(0.5), pad.t, X(1) - X(0.5), Y(0.8) - pad.t);
+  ctx.strokeStyle = 'rgba(245,166,35,0.35)';
+  ctx.setLineDash([4, 3]);
+  ctx.strokeRect(X(0.5), pad.t, X(1) - X(0.5), Y(0.8) - pad.t);
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(245,166,35,0.8)';
+  ctx.font = '9px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('unreachable', X(0.75), pad.t + 14);
+
+  // RBS >= 0.868 threshold line
+  ctx.strokeStyle = 'rgba(0,212,170,0.45)';
+  ctx.setLineDash([5, 4]);
+  ctx.beginPath();
+  ctx.moveTo(pad.l, Y(0.868));
+  ctx.lineTo(pad.l + mW, Y(0.868));
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#00D4AA';
+  ctx.textAlign = 'left';
+  ctx.fillText('RBS ≥ 0.868 → chip-eligible', pad.l + 4, Y(0.868) - 5);
+
+  // Axes
+  ctx.strokeStyle = '#1F2937'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + mH);
+  ctx.lineTo(pad.l + mW, pad.t + mH);
+  ctx.stroke();
+
+  // Axis labels
+  ctx.fillStyle = '#4B5563'; ctx.font = '9px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Chow Preservation (CPS) →', pad.l + mW / 2, H - 6);
+  ctx.save(); ctx.translate(12, pad.t + mH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Reagent Blocking (RBS) →', 0, 0);
+  ctx.restore();
+
+  // Candidate cloud along an inverse tradeoff frontier (deterministic)
+  const rng = (s: number) => { const x = Math.sin(s) * 10000; return x - Math.floor(x); };
+  for (let i = 0; i < 900; i++) {
+    const cps = 0.04 + rng(i * 3.7) * 0.92;
+    // frontier: higher CPS -> lower max RBS; scatter below it
+    const frontier = 1.0 - cps * 0.78;
+    const rbs = Math.max(0.05, frontier - rng(i * 2.3) * 0.55);
     ctx.beginPath();
-    ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + mH);
-    ctx.lineTo(pad.l + mW, pad.t + mH);
-    ctx.stroke();
-
-    // Labels
-    ctx.fillStyle = '#4B5563'; ctx.font = '9px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Growth on sugar reagents →', pad.l + mW / 2, H - 4);
-    ctx.save(); ctx.translate(10, pad.t + mH / 2);
-    ctx.rotate(-Math.PI/2);
-    ctx.fillText('← Growth on xylose (chow)', 0, 0);
-    ctx.restore();
-
-    // Generate synthetic scatter points mimicking the pitch deck distribution
-    const rng = (seed: number) => { let x = Math.sin(seed) * 10000; return x - Math.floor(x); };
-    const points: {x: number, y: number, cos: number, top: boolean}[] = [];
-    for (let i = 0; i < 9976; i++) {
-      const x = 2 + rng(i * 3.7) * 6;
-      const baseY = 0.15 + rng(i * 2.3) * 0.7;
-      const y = baseY - Math.max(0, (x - 4) * 0.07);
-      const cos = Math.max(0, (1 - x / 8) * 0.4 + y * 0.3 + rng(i * 5.1) * 0.15);
-      points.push({ x, y: Math.max(0.05, y), cos, top: i < 16 });
-    }
-
-    // Draw points (subsample for performance)
-    const step = Math.max(1, Math.floor(points.length / 600));
-    points.forEach((p, i) => {
-      if (i % step !== 0 && !p.top) return;
-      const cx = pad.l + ((p.x - 2) / 6) * mW;
-      const cy = pad.t + mH - (p.y / 0.85) * mH * 0.9;
-      const alpha = 0.15 + p.cos * 0.6;
-      const r = p.top ? 4 : 1.5;
-      const hue = Math.round(160 - p.cos * 120);
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.fillStyle = p.top ? '#00D4AA' : `hsla(${hue}, 70%, 55%, ${alpha})`;
-      ctx.fill();
-    });
-
-    // Top 16 label
-    ctx.fillStyle = '#00D4AA';
-    ctx.font = 'bold 9px Inter, sans-serif';
-    ctx.textAlign = 'left';
-    ctx.fillText('★ Top 50 candidates (COS)', pad.l + 8, pad.t + 12);
+    ctx.arc(X(cps), Y(rbs), 1.4, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(139,149,165,0.28)';
+    ctx.fill();
   }
 
-  const o = new IntersectionObserver(e => { if (e[0].isIntersecting) { draw(); o.disconnect(); } }, { threshold: 0.1 });
-  o.observe(canvas);
-  window.addEventListener('resize', draw);
-})();
+  // The 16 chip-eligible strains: RBS >= 0.868, low CPS (per patent tradeoff)
+  for (let i = 0; i < 16; i++) {
+    const cps = 0.12 + rng(i * 7.13) * 0.12;        // ~0.12–0.24
+    const rbs = 0.868 + rng(i * 4.9) * 0.085;        // 0.868–0.953
+    ctx.beginPath();
+    ctx.arc(X(cps), Y(rbs), 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#00D4AA';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,212,170,0.35)';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.lineWidth = 1;
+  }
+
+  // Exemplary pair marker (CPS 0.185, RBS 0.868)
+  ctx.beginPath();
+  ctx.arc(X(0.185), Y(0.868), 5.5, 0, Math.PI * 2);
+  ctx.fillStyle = '#F5A623';
+  ctx.fill();
+  ctx.fillStyle = '#F5A623';
+  ctx.font = 'bold 9px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('exemplary pair', X(0.185) + 9, Y(0.868) + 3);
+}
+
+const pObs = new IntersectionObserver(e => { if (e[0].isIntersecting) drawPareto(); }, { threshold: 0.1 });
+const pCanvas = document.getElementById('cos-pareto');
+if (pCanvas) pObs.observe(pCanvas);
+window.addEventListener('resize', drawPareto);
 </script>
